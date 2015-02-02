@@ -138,7 +138,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	<link rel="stylesheet" href="<?php echo T3_WEBPATH;?>bootstrap/css/vcusp-theme.css">
 
 	<!-- Bootstrap JS -->
-	<script type='text/javascript' src='http://www.producao.usp.br/jspui/static/js/bdpi/bdpi.min.js'></script>
+	<script type='text/javascript' src='<?php echo T3_WEBPATH;?>jq/bdpi.min.js'></script>
 	
 	<?php
 	if ($_SESSION[$_SESSION["CFGURL"]][ssuser_nivel]>0) 

@@ -23,7 +23,7 @@ html{font-size:62.5%;}
 #error p{padding-left:10px;font-size:102%;}
 #main{border-left:1px solid #F70;border-right:1px solid #F70;background:#fff;}
 #notas{clear:both;background-color:#f0fcff;margin-bottom:0.5em;border-color:#f0f0f0 #D6D6D6 #D6D6D6 #f0f0f0;border-style:solid;border-width:1px;padding:0.5em;}
-#notas > dd{padding-top:6px;padding-bottom:6px;border-top:1px dotted #d85d5d;visibility:inherit;text-align:justify;margin:1%;}
+#notas > dd{padding-top:6px;padding-bottom:6px;border-top:1px dotted #d85d5d;visibility: inherit;text-align:justify;margin:1%;}
 #notas > dt{font-weight:700;}
 #sidebar{float:left;width:20%;background:#fff;padding:5px;}
 #sidebar li{margin-left:13px;padding:3px 0;}
@@ -363,7 +363,7 @@ font-weight:bolder;
 padding: 0.1em 0 0.1em 0.4em;
 list-style-type: none;
 border-bottom: 1px solid #e3e3e3;
-margin-left: 5;
+margin-left: 5px;
 width:80%;
 font-family: arial,sans-serif;
 font-size: small;
@@ -380,7 +380,7 @@ font-family: arial,sans-serif;
 font-size: medium;
 font-weight: 400;
 padding:0.2em 0.4em;
-margin:1.5em,1.5em,0.5em,1.5em;    
+margin:1.5em 1.5em 0.5em 1.5em;    
 }
 
 p.metaTerm {background:#fff8bf 13px 50% no-repeat;border:2px solid #ffd324;color:#eb830c;font-size:120%;padding:5px 11px 5px 20px;}
@@ -528,7 +528,6 @@ border-style:none;
 
 ol.tilted-list {
     list-style-type: none;
-    list-style-type: decimal !ie; /*IE 7- hack*/
      
     margin: 0;
     margin-left: 3em;
