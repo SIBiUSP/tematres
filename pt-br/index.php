@@ -62,7 +62,7 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
 <?php
 }
 ?>
-	<script type="application/javascript" src="js.php" charset="utf-8"></script>
+	<script type="application/javascript" src="js.php?tema=$_GET['tema']" charset="utf-8"></script>
 	<script type="text/javascript" src="<?php echo T3_WEBPATH;?>forms/jquery.validate.min.js"></script>
 	<?php
 	 if($_SESSION[$_SESSION["CFGURL"]]["lang"][2]!=='en')

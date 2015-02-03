@@ -312,7 +312,7 @@ jQuery(function(){
 	}
 
 	    options = {
-		    serviceUrl:'suggest.php' ,
+		    serviceUrl:'suggest_qual.php?tema=45185' ,
 		    minChars:2,
 		    delimiter: /(,|;)\s*/, // regex or character
 		    maxHeight:400,
@@ -327,7 +327,7 @@ jQuery(function(){
 		
 	    var ac = $('#addTerms').autocomplete({
 		    minChars:2,
-		    serviceUrl:'suggest.php?t=0&amp;',
+		    serviceUrl:'suggest_qual.php?t=0&tema=45185',
 		    delimiter: /(,|;)\s*/, // regex or character
 		    maxHeight:400,
 		    width:600,
@@ -354,7 +354,7 @@ jQuery(function(){
 	}
 
 	    options = {
-		    serviceUrl:'suggest.php' ,
+		    serviceUrl:'suggest_qual.php?tema=32584' ,
 		    minChars:2,
 		    delimiter: /(,|;)\s*/, // regex or character
 		    maxHeight:400,
@@ -369,7 +369,7 @@ jQuery(function(){
 		
 	    var ac = $('#addTerms').autocomplete({
 		    minChars:2,
-		    serviceUrl:'suggest.php?t=0&amp;',
+		    serviceUrl:'suggest_qual.php?t=0&tema=32584',
 		    delimiter: /(,|;)\s*/, // regex or character
 		    maxHeight:400,
 		    width:600,
@@ -396,7 +396,7 @@ jQuery(function(){
 	}
 
 	    options = {
-		    serviceUrl:'suggest.php' ,
+		    serviceUrl:'suggest_qual.php?tema=32628' ,
 		    minChars:2,
 		    delimiter: /(,|;)\s*/, // regex or character
 		    maxHeight:400,
@@ -411,7 +411,7 @@ jQuery(function(){
 		
 	    var ac = $('#addTerms').autocomplete({
 		    minChars:2,
-		    serviceUrl:'suggest.php?t=0&amp;',
+		    serviceUrl:'suggest_qual.php?t=0&tema=32584',
 		    delimiter: /(,|;)\s*/, // regex or character
 		    maxHeight:400,
 		    width:600,

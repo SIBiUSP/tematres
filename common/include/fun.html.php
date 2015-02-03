@@ -1861,6 +1861,28 @@ function getData4Autocompleter($searchq,$type=1)
     return json_encode($arrayResponse);
 };
 
+/**
+ * Retorna los datos, acorde al formato de autocompleter
+ */
+function getData4AutocompleterQualificadores($searchq,$tema,$type=1)
+{
+	// $sql=($type==1) ? SQLstartWith($searchq) : SQLbuscaTerminosQualificadores($searchq,$tema,"15");		
+        
+        $sql = SQLbuscaTerminosQualificadores($searchq,$tema,"15");
+
+	$arrayResponse=array("query"=>$searchq,
+						 "suggestions"=>array(),
+						 "data"=>array());
+	
+	while($array=$sql->FetchRow())
+	{
+		array_push($arrayResponse["suggestions"], $array["tema"]);
+		array_push($arrayResponse["data"], $array["tema_id"]);
+	}				
+
+    return json_encode($arrayResponse);
+};
+
 /*
 Retorna los datos, acorde al formato de jtree
  */

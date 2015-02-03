@@ -1112,6 +1112,40 @@ return SQL("select","t.tema_id,
 return $sql;
 };
 
+#
+# Busca em qualificadores
+#
+function SQLbuscaTerminosQualificadores($string,$tema,$limit="20"){
+GLOBAL $DBCFG;
+
+$limit=(is_int($limit)) ? $limit : "20";
+
+//Control de estados
+$where=(!$_SESSION[$_SESSION["CFGURL"]][ssuser_id]) ? " and t.estado_id='13' " : "";
+
+//Check is include or not meta terms
+$where.=(CFG_SEARCH_METATERM==0) ? " and t.isMetaTerm=0 " : "";
+
+$string=secure_data("$string%","ADOsql");
+
+$size_i = strlen($tema) + 2;
+
+return SQL("select","t.tema_id,
+                     t.tema,
+                     r.t_relacion
+                from $DBCFG[DBprefix]tema as t
+                inner join $DBCFG[DBprefix]indice as tti
+                  on (t.tema_id=tti.tema_id and left(tti.indice,$size_i)='|$tema|')
+                left join $DBCFG[DBprefix]tabla_rel as r
+                  on (t.tema_id=r.id_mayor and r.t_relacion='4')
+		where t.tema like $string
+                    $where
+                group by t.tema	
+                order by lower(t.tema)
+                limit 0,$limit");
+return $sql;
+};
+
 
 #
 # Lista de Ids de términos válidos y aceptados (sin UF ni términos libres)
