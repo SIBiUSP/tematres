@@ -289,6 +289,13 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
                                                           <li><a href="?setLang=es">Español</a></li>
                                                         </ul>
                                                     </li>
+                                                    <li class="dropdown">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Equipe <span class="caret"></span></a>
+                                                        <ul class="dropdown-menu" role="menu">
+                                                            <li><a href="equipe.php">Equipe de implementação</a></li>
+                                                            <li><a href="equipe_atual.php">Grupos de gestão atuais</a></li>
+                                                        </ul>
+                                                    </li>                                                     
                                                     <li><a title="<?php echo MENU_Sobre;?>" href="sobre.php"><?php echo MENU_Sobre;?></a></li>                                                 
 						</ul>
 						<!-- Search Box -->

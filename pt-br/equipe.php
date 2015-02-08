@@ -62,7 +62,7 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
 <?php
 }
 ?>
-	<script type="application/javascript" src="js.php?tema=$_GET['tema']" charset="utf-8"></script>
+	<script type="application/javascript" src="js.php" charset="utf-8"></script>
 	<script type="text/javascript" src="<?php echo T3_WEBPATH;?>forms/jquery.validate.min.js"></script>
 	<?php
 	 if($_SESSION[$_SESSION["CFGURL"]]["lang"][2]!=='en')
@@ -295,7 +295,7 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
                                                             <li><a href="equipe.php">Equipe de implementação</a></li>
                                                             <li><a href="equipe_atual.php">Grupos de gestão atuais</a></li>
                                                         </ul>
-                                                    </li>                                                     
+                                                    </li>                                                    
                                                     <li><a title="<?php echo MENU_Sobre;?>" href="sobre.php"><?php echo MENU_Sobre;?></a></li>                                                 
 						</ul>
 						<!-- Search Box -->
@@ -312,12 +312,489 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
 <!-- body, or middle section of our header -->   
 
 <!-- ###### Body Text ###### -->
-<?php
 
-	require_once(T3_ABSPATH . 'common/include/inc.inicio.php');
+<div class="row">
+<div class="col-md-12">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Equipe de implementação</h3>
+  </div>
+  <div class="panel-body">
+      <h4>Coordenadora de Pesquisa e Metodologia</h4>
+      <p>Nair Yumiko Kobashi (ECA)</p>
+      <h4>Coordenadora do Trabalho Técnico das Equipes Bibliotecárias</h4>
+      <p>Vânia Mara Alves Lima (FAU)</p>
+      <h4>Bibliotecários - Participantes da Elaboração do Vocabulário (1996-2000)</h4>
+      <li>Beatriz Bergonzoni Battaglia (FE)</li>
+      <li>Célia Maria de Sant´Anna (MP)</li>
+      <li>Cibele Araújo Camargo Marques dos Santos (FSP)</li>
+      <li>Eliana Rotolo (MAE)</li>
+      <li>Elisa C. M. R. Pires (IGC)</li>
+      <li>Emily Ann Labaki Agostinho (FAU)</li>
+      <li>Filomena Katsutani (FAU)</li>
+      <li>Luzia Marilda Zoppei Murgia e Moraes (FMVZ)</li>
+      <li>Márcia Pilnik (IEB)</li>
+      <li>Maria Angela de Toledo Leme (ESALQ)</li>
+      <li>Maria Aparecida de L. C. Santos (FM)</li>
+      <li>Maria Célia Amaral (FFLCH)</li>
+      <li>Maria Cláudia Pestana (FMVZ)</li>
+      <li>Marina Mayumi Yamashita (CQ)</li>
+      <li>Renata Celli (FD)</li>
+      <li>Rita de Cássia Santos Ferreira (IB)</li>
+      <li>Sandra Tokarevicz (ECA)</li>
+      <li>Silvia Regina Saran Della Torre Oliveira (EP)</li>
+      <li>Sonia Maria Gardim (EE)</li>
+      <li>Sonia Regina Yole Guerra (IGC)</li>
+      <li>Suely Cafazzi Prati (FO)</li>
+      <li>Vera Lúcia de Moura Accioli Cardoso (FE)</li>
+      <li>Vera Regina Casari Boccato (FOB)</li>
+      <p><b>Responsáveis pelo Levantamento e Hierarquização Terminológicos nas Unidades USP</b></p>
+      <li>Beatriz Bergonzoni Battaglia (FE)</li>
+      <li>Célia Maria de Sant´Anna (MP)</li>
+      <li>Cibele Araújo Camargo Marques dos Santos (FSP)</li>
+      <li>Dina E. Uliana (MAC)</li>
+      <li>Ednéia Aparecida de Almeida (IF)</li>
+      <li>Eliana Rotolo (MAE)</li>
+      <li>Elisa C. M. R. Pires (IGC)</li>
+      <li>Elza Correa Granja (IP)</li>
+      <li>Emily Ann Labaki Agostinho (FAU)</li>
+      <li>Filomena Katsutani (FAU)</li>
+      <li>Giacomina Faldini (FD)</li>
+      <li>Izair de Sousa (IO)</li>
+      <li>Lúcia T. Votta de Carvalho (IP)</li>
+      <li>Luzia Marilda Zoppei Murgia e Moraes (FMVZ)</li>
+      <li>Márcia Ippolito Bueno de Camargo (ECA)</li>
+      <li>Márcia Medeiros de Carvalho (MP)</li>
+      <li>Márcia Pilnik (IEB)</li>
+      <li>Maria Angela de Toledo Leme (ESALQ)</li>
+      <li>Maria Aparecida de L. C. Santos (FM)</li>
+      <li>Maria Célia Amaral (FFLCH)</li>
+      <li>Maria Cláudia Pestana (FMVZ)</li>
+      <li>Maria Cristina Dziabas (IFSC)</li>
+      <li>Maria Imaculada Cardoso Sampaio (IP)</li>
+      <li>Maria Lúcia Ribeiro (IME)</li>
+      <li>Maria Regina M. Ferreira (MZ)</li>
+      <li>Marily Antonelli Graeber (ICB)</li>
+      <li>Marina Mayumi Yamashita (CQ)</li>
+      <li>Olímpio Jorge Medeiros (ICB)</li>
+      <li>Regiane Pereira dos Santos (EEFE)</li>
+      <li>Renata Celli (FD)</li>
+      <li>Rita de Cássia Santos Ferreira (IB)</li>
+      <li>Rosana Alvarez Paschoalino (EESC)</li>
+      <li>Sandra Aparecida Marques dos Santos (IAG)</li>
+      <li>Sandra M. La Farina Rodovalho (FEA)</li>
+      <li>Sandra Tokarevicz (ECA)</li>
+      <li>Silvia Regina Saran Della Torre Oliveira (EP)</li>
+      <li>Solange Maria S. Pucinelli (IQSC)</li>
+      <li>Sonia G. Eleutério (FSP)</li>
+      <li>Sonia Maria Gardim (EE)</li>
+      <li>Sonia Regina Yole Guerra (IGC)</li>
+      <li>Suely Cafazzi Prati (FO)</li>
+      <li>aléria C. T. Ferraz (FOB)</li>
+      <li>Valéria dos S. G. Martins (FMVZ)</li>
+      <li>Vera Lúcia de Moura Accioli Cardoso (FE)</li>
+      <li>Vera Regina Casari Boccato (FOB)</li>
+      <p><b>Colaboradores</b></p>
+      <li>Ademir do Carmo Merlin Barroso (EP)</li>
+      <li>Adriana Bueno Moretti (ESALQ)</li>
+      <li>Adriana Hypólito Nogueira (DT/SIBi)</li>
+      <li>Analúcia dos Santos Viviani Recine (ECA)</li>
+      <li>Antonia Lúcia Brocatti (BCRP)</li>
+      <li>Clélia de Lourdes Lara Meguerditchian (EP)</li>
+      <li>Eliana Maria Garcia Sabino (ESALQ)</li>
+      <li>Elizabeth Dudziak (EP)</li>
+      <li>Érica Beatriz P. M. Oliveira (IGC)</li>
+      <li>Ester Myazaki (FD)</li>
+      <li>Flávia Helena Cassin Passador (EESC)</li>
+      <li>Inaie Marchizeli Wenzel (DT/SIBi)</li>
+      <li>Josefa Naoka Uratsuka (EP)</li>
+      <li>Letícia de Almeida Sampaio (FAU)</li>
+      <li>Márcia Baumgartener (HU)</li>
+      <li>Márcia E. G. Grandi (FFLCH)</li>
+      <li>Marcia Regina M. Saad (ESALQ)</li>
+      <li>Márcia Rosetto (DT/SIBi)</li>
+      <li>Maria Cristina Martinez Bonésio (EP)</li>
+      <li>Maria Cristina Moura R. de Andrade (ESALQ)</li>
+      <li>Maria Cristina Olaio Villela (EP)</li>
+      <li>Maria Elizabete de Carvalho Ota (ECA)</li>
+      <li>Maria Gisele Fonseca Oliveira (FEA)</li>
+      <li>Maria Inês Conte (DT/SIBi)</li>
+      <li>Maria Luiza Lourenço (FFLCH)</li>
+      <li>Maria Nadir Minatel (EESC)</li>
+      <li>Marina M. Macambyra (ECA)</li>
+      <li>Neusa Yoscimoto (EP)</li>
+      <li>Sandra H.M.G. Ribeiro dos Santos (ESALQ)</li>
+      <li>Silvana Amélia X. de Aguiar Bonifácio (DT/SIBi)</li>
+      <li>Silvia Lucia Ribeiro (EP)</li>
+      <li>Silvia Neto do Vale Sverzut (EESC)</li>
+      <li>Sonia Lucia Pacheco de Toledo Carvalho (FM)</li>
+      <li>Sonia Marisa Luchesi (FFLCH)</li>
+      <li>Tania Amir de Jesus Dias (FM)</li>
+      <li>Vera Lucia Duarte (EP)</li>
+      <li>Zaira Regina Zafalon (FEA)</li>
+      <p><b>Técnicos de Biblioteca</b></p>
+      <li>Ana Lúcia de Lira Facini (FFLCH)</li>
+      <li>Antonio Carlos Fabretti Facco (ESALQ )</li>
+      <li>Aparecida Elizabeth dos Santos (ESALQ)</li>
+      <li>Josue Reinaldo Mota (ESALQ)</li>
+      <li>Maria Célia Tonon Parra (FFLCH)</li>
+      <li>Maria Verônica da Silva Ritter (FFLCH)</li>
+      <li>Rosemary M.M.F. Gonçalves (MP)</li>
+      <li>Rosilene Lefone (FAU)</li>
+      <li>Sebastiana Campelo de Oliveira (IME)</li>
+      <p><b>Alunos das Unidades USP</b></p>
+      <li>Adriana Miyamura (FO)</li>
+      <li>Arilson Borges Mendonça (FD)</li>
+      <li>Denis Pimenta e Souza (FO)</li>
+      <li>Evelyn Almeida Lucas Gonçalves (FOB)</li>
+      <li>Frederico Werneck Kurtz (IO)</li>
+      <li>Karine Piñera Marques (FOB)</li>
+      <li>Leonardo Pinto Brandão (FMVZ)</li>
+      <li>Luciano L. Nass (ESALQ)</li>
+      <li>Mário James dos Anjos da Silva (FOB)</li>
+      <li>Mônica Petti (IO)</li>
+      <li>Regina Lúcia Sugayama (IB)</li>
+      <li>Renato Massaharu Hassunuma (FOB)</li>
+      <li>Sylvia M.M. Susini Ribeiro (IO)</li>
+      <li>Tania Aparecida Silva Brito (IO)</li>
 
-?>
-<p></p>
+      <h4>Definição da base de dados</h4>
+      <p><b>Bibliotecárias</b></p>
+      <li>Adriana Hypólito Nogueira (DT/SIBi)</li>
+      <li>Márcia Rosetto (DT/SIBi)</li>
+      <li>Vânia Mara Alves Lima (FAU)</li>
+
+      <h4>Desenvolvimento de software</h4>
+      <p><b>Analista de Sistemas</b></p>
+      <p><b>Software para Busca, Indexação e Recuperação do Vocabulário</b></p>
+      <p><b>Desenho e Implementação do Banco de Dados</b></p>
+      <li>João Carlos H. de Barcellos (DT/SIBi)</li>
+      <p><b>Software para Cadastramento de Termos do Vocabulário</b></p>
+      <li>João Carlos H. de Barcellos (DT/SIBi)</li>
+
+      <h4>Docentes colaboradores, por áreas do conhecimento</h4>
+CA100 CIÊNCIAS AGRÁRIAS
+      <li>Alexandre Vaz Pires (ESALQ)</li>
+      <li>Antonio Joaquim de Oliveira (ESALQ)</li>
+      <li>Antonio Luiz Fancelli (ESALQ)</li>
+      <li>Antonio Roberto Pereira (ESALQ)</li>
+      <li>Casimiro Dias Gadanha Junior (ESALQ)</li>
+      <li>Cyro Fúlvio Zinsly (ESALQ)</li>
+      <li>Iran José Oliveira da Silva (ESALQ)</li>
+      <li>José Antonio Frizzone (ESALQ)</li>
+      <li>José Eurico Possebon Cyrino (ESALQ)</li>
+      <li>Keigo Minami (ESALQ)</li>
+      <li>Lilian Amorim (ESALQ)</li>
+      <li>Lindolpho Capellari Junior (ESALQ)</li>
+      <li>Luiz Carlos C. B. Ferraz (ESALQ)</li>
+      <li>Marília Oetterer (ESALQ)</li>
+      <li>Oriowaldo Queda (ESALQ)</li>
+      <li>Paulo Fernando C. Araújo (ESALQ)</li>
+      <li>Pedro Jacob Christofoletti (ESALQ)</li>
+      <li>Raul Machado Neto (ESALQ)</li>
+      <li>Roberto Antonio Zucchi (ESALQ)</li>
+      <li>Rodolfo Hoffmann ESALQ)</li>
+      <li>Silvio Moure Cícero (ESALQ)</li>
+      <li>Solange G. Canniatti-Brazaca (ESALQ)</li>
+      <li>Tasso Leo Krügner (ESALQ)</li>
+      <li>Walter de Paula Lima (ESALQ)</li>
+      <li>Zilmar Ziller Marcos (ESALQ)</li>
+CB200 BIOCIÊNCIAS
+      <li>Alberto Augusto G. de Freitas C. Ribeiro (IB)</li>
+      <li>Blanche Christine P. de Bitner Mathe Leal (IB)</li>
+      <li>Edmundo Ferraz Nonato (IO)</li>
+      <li>Estela Maria Plastino (IB)</li>
+      <li>Fábio Lang da Silveira (IB)</li>
+      <li>Gisela Yuka Shimizu (IB)</li>
+      <li>Luz Amelia Veja Pérez (IO)</li>
+      <li>Marilene dos S. C. Bianconcini (IB)</li>
+      <li>Mayza Pompeu (IO)</li>
+
+CB300 CIÊNCIAS DA SAÚDE
+
+CB310 EDUCAÇÃO FÍSICA E ESPORTE
+      <li>Alberto Carlos Amadio (EEFE)</li>
+      <li>Antonio Hebert Lancha Júnior (EEFE)</li>
+      <li>Cláudia Lúcia de Moraes Forjaz (EEFE)</li>
+      <li>Dalberto Luis De Santo (EEFE)</li>
+      <li>Edison de Jesus Manoel (EEFE)</li>
+      <li>Go Tani (EEFE)</li>
+      <li>José Guilmar Mariz de Oliveira (EEFE)</li>
+      <li>Luiz Augusto Teixeira (EEFE)</li>
+      <li>Marcos Duarte (EEFE)</li>
+      <li>Maria Augusta Peduti Dal Molin Kiss (EEFE)</li>
+      <li>Patrícia Chakur Brum(EEFE)</li>
+      <li>Rubens Lombardi Rodrigues (EEFE)</li>
+      <li>Silene Sumire Okuma (EEFE)</li>
+      <li>Valdir José Barbanti (EEFE)</li>
+
+CB320 ENFERMAGEM
+
+      <li>Cibele Andrucioli de Mattos Pimenta (EE)</li>
+      <li>Diná de Almeida Lopes Monteiro da Cruz (EE)</li>
+      <li>Miako Kimura (EE)</li>
+
+CB330 MEDICINA
+
+      <li>César Timo-Iaria (FM)</li>
+
+CB350 ODONTOLOGIA
+
+      <li>Alberto Consolaro (FOB)</li>
+      <li>Alceu Sérgio Trindade Júnior (FOB)</li>
+      <li>Carlos de Paula Eduardo (FO)</li>
+      <li>Cesário Antonio Duarte (FO)</li>
+      <li>Esther Goldenberg Birman (FO)</li>
+      <li>Gerson Francisco de Assis (FOB)</li>
+      <li>Giorgio De Micheli (FO)</li>
+      <li>Guilherme dos Reis Pereira Janson (FOB)</li>
+      <li>Jesus Carlos D'Andreo (FOB)</li>
+      <li>João Adolfo Caldas Navarro (FOB)</li>
+      <li>José Humberto Damante (FOB)</li>
+      <li>José Luiz da Silva Lage Marques (FO)</li>
+      <li>Luis Antonio Pugliesi Alves de Lima (FO)</li>
+      <li>Maria Fidela de Lima Navarro (FOB)</li>
+      <li>Nilce Emy Tomita (FOB)</li>
+      <li>Odila Pereira da Silva Rosa (FOB)</li>
+      <li>Rafael Yague Ballester (FO)</li>
+      <li>Rumio Taga (FOB)</li>
+      <li>Solange Mongelli de Fantini (FO)</li>
+      <li>Sunao Taga Tamaki (FO)</li>
+
+CB380 FARMÁCIA E COSMETOLOGIA
+
+      <li>Elizabeth Igne Ferreira (FCF)</li>
+
+
+CB400 SAÚDE ANIMAL
+
+CB410 MEDICINA VETERINÁRIA E ZOOTECNIA
+
+      <li>Helenice de Souza Spinosa (FMVZ)</li>
+      <li>José Luiz Bernardino Merusse (FMVZ)</li>
+      <li>Laudinor De Vuono (FMVZ)</li>
+      <li>Maria Helena Matiko Akao Larsson (FMVZ)</li>
+      <li>Mitika Kuribayashi Hagiwara (FMVZ)</li>
+      <li>Nobuko Kasai (FMVZ)</li>
+      <li>Pedro Primo Bombonato (FMVZ)</li>
+      <li>Wilson Gonçalves Viana (FMVZ)</li>
+
+ 
+
+CE500 CIÊNCIAS EXATAS
+
+CE510 ASTRONOMIA
+
+      <li>Zulema Abraham (IAG)</li>
+
+ 
+
+CE520 FÍSICA
+
+      <li>Adalberto Fazzio (IF)</li>
+      <li>Bernhard Joaquim Mokross (IFSC)</li>
+      <li>Carlos Ourivio Escobar (IF)</li>
+      <li>Celso Luiz Lima (IF)</li>
+      <li>Djalma Mirabelli Redondo (IFSC)</li>
+      <li>Henrique Fleming (IF)</li>
+      <li>Iuda Godman Vel Lejbamn (IF)</li>
+      <li>Ivan Cunha do Nascimento (IF)</li>
+      <li>José Pedro Donoso Gonzalez (IFSC)</li>
+      <li>Lidério Citrângulo Ioriatti Junior (IFSC)</li>
+      <li>Mahir Saleh Hussein (IF)</li>
+      <li>Maximo Siu Li (IFSC)</li>
+      <li>Rogério Trajano da Costa (IFSC)</li>
+      <li>Silvio Roberto de Azevedo Salinas (IF)</li>
+      <li>Victor de Oliveira Rivelles (IF)</li>
+      <li>Walter Felipe Wreszinski (IF)</li>
+
+
+CE530 GEOCIÊNCIAS
+
+      <li>Antonio Carlos Rocha Campos (IGC)</li>
+      <li>Arlei Benedito Macedo (IGC)</li>
+      <li>Joel Barbujiani Sigolo (IGC)</li>
+      <li>Jorge Kazuo Yamamoto (IGC)</li>
+      <li>Kenitiro Suguio (IGC)</li>
+      <li>Ricardo César Aoki Hirata (IGC)</li>
+      <li>Thomas Rich Fairchild (IGC)</li>
+      <li>Uriel Duarte (IGC)</li>
+      <li>Valdecir de Assis Janasi (IGC)</li>
+
+CE540 GEOFÍSICA
+
+      <li>Nelsi Côgo de Sá (IAG)</li>
+
+ 
+
+CE550 MATEMÁTICA
+
+      <li>Cyro de Carvalho Patarra (IME)</li>
+      <li>Elza Furtado Gomide (IME)</li>
+ 
+
+CE560 QUÍMICA
+
+      <li>Alberico Borges F Silva (IQSC)</li>
+      <li>Ana Maria da Costa Ferreira (IQ)</li>
+      <li>Antonio Aprigio da Silva Curvelo (IQSC)</li>
+      <li>Benedito Santos Lima Neto (IQSC)</li>
+      <li>Gilberto Goissis (IQSC)</li>
+      <li>Janete H. Y. Vilegas (IQSC)</li>
+      <li>Maria Teresa do Prado Gambardella (IQSC)</li>
+      <li>Paulo Sergio Santos (IQ)</li>
+      <li>Wagner Polito (IQSC)</li>
+      <li>Yoshio Kawano (IQ)</li>
+
+CE600 CIÊNCIAS EXATAS APLICADAS
+
+CE610 CIÊNCIAS DA COMPUTAÇÃO
+
+      <li>Flávio Soares Correia da Silva (IME)</li>
+      <li>Yoshiharu Kohayakawa (IME)</li>
+
+ 
+
+CE620 ENGENHARIAS
+
+      <li>Agenor de Toledo Fleury (EP)</li>
+      <li>Amilcar Careli Cesar (EESC)</li>
+      <li>Antonio Moreira dos Santos (EESC)</li>
+      <li>Antonio Rafael Namur Muscat (EP)</li>
+      <li>Antonio Stellin Junior (EP)</li>
+      <li>Arlindo Tribess (EP)</li>
+      <li>Célio Taniguchi (EP)</li>
+      <li>Eduardo Morgado Belo (EESC)</li>
+      <li>Eiji Kawamoto (EESC)</li>
+      <li>Euryale Jorge Godoy de Jesus Zerbini (EP)</li>
+      <li>Hélio Goldenstein (EP)</li>
+      <li>Helmut Born (EP)</li>
+      <li>Hercílio Gomes de Melo (EP)</li>
+      <li>Hugo Pietrantonio (EP)</li>
+      <li>Idalina Vieira Aoki (EP)</li>
+      <li>Ivan Gilberto Sandoval Falleiros (EP)</li>
+      <li>Jaime Gilberto Duduch (EESC)</li>
+      <li>João Bento de Hanai (EESC)</li>
+      <li>João Vitor Mocelin (EESC)</li>
+      <li>José Luis Peres Camacho (EP)</li>
+      <li>Liedi Legi Bariani Bernucci (EP)</li>
+      <li>Lindolfo Soares (EP)</li>
+      <li>Luiz Roberto Terron (EP)</li>
+      <li>Marcos Ribeiro Pereira Barretto (EP)</li>
+      <li>Mario Francisco Mucheroni (EESC)</li>
+      <li>Masazi Maeda (EP)</li>
+      <li>Mercia Maria Semensato Bottura de Barros (EP)</li>
+      <li>Mônica Ferreira do Amaral Porto (EP)</li>
+      <li>Neusa Alonso Falleiros (EP)</li>
+      <li>Nicolau Dionisio Fares Gualda (EP)</li>
+      <li>Nicole Demarquette (EP)</li>
+      <li>Orlando Strambi (EP)</li>
+      <li>Paulo Antonio Mariotto (EP)</li>
+      <li>Paulo Eigi Miyagi (EP)</li>
+      <li>Pedro Alem Sobrinho (EP)</li>
+      <li>Rubem La Laina Porto (EP)</li>
+      <li>Sidney Seckler Ferreira Filho (EP)</li>
+      <li>Sylvio Reynaldo Bistafa (EP)</li>
+      <li>Valdir Schalch (EESC)</li>
+CE630 ESTATÍSTICA E PROBABILIDADE
+
+      <li>Nelson Ithiro Tanaka (IME)</li>
+
+CE640 METEOROLOGIA
+
+      <li>Fábio Luiz Teixeira Gonçalves (IAG)</li>
+
+CH700 CIÊNCIAS HUMANAS
+
+CH710 ADMINISTRAÇÃO, ECONOMIA, ECONOMIA DOMÉSTICA E CONTABILIDADE
+
+      <li>Gilberto Tadeu Shinyashiki (FEARP)</li>
+      <li>Maria Cristina Cacciamali (FEA)</li>
+      <li>Masayuki Nakagawa (FEA)</li>
+      <li>Paulo de Tarso Presgrave Leite Soares (FEA)</li>
+
+CH720 ARQUEOLOGIA, MITOLOGIA E PRÉ-HISTÓRIA
+
+      <li>Levy Figuti (MAE)</li>
+      <li>Maria Beatriz Borba Florenzano (MAE)</li>
+      <li>Maria Isabel D´Agostino Fleming (MAE)</li>
+
+CH730 ARQUITETURA, PLANEJAMENTO TERRITORIAL URBANO E HABITAÇÃO
+
+      <li>Antonio Luis Dias de Andrade "In Memoriam" (FAU)</li>
+      <li>Carlos Eduardo Zahn (FAU)</li>
+      <li>Luiz Américo de Souza Munari (FAU)</li>
+
+CH740 ARTES E COMUNICAÇÃO
+
+      <li>Adilson Odair Citelli (ECA)</li>
+      <li>Amilcar Zani Netto (ECA)</li>
+      <li>Ana Maria de Abreu Amaral (ECA)</li>
+      <li>Arlindo Ribeiro Machado Neto (ECA)</li>
+      <li>Carlos Marcos Avighi (ECA)</li>
+      <li>Doris Van de Meene Ruschmann (ECA)</li>
+      <li>Dulcília Helena Schroeder Buitoni (ECA)</li>
+      <li>Eduardo Simões dos Santos Mendes (ECA)</li>
+      <li>Fausto Fuser (ECA)</li>
+      <li>Gabriela Suzana Wilder (MAC)</li>
+      <li>Gilmar Roberto Jardim (ECA)</li>
+      <li>Ismail Norberto Xavier (ECA)</li>
+      <li>José Eduardo Vendramini (ECA)</li>
+      <li>Lorenzo Mammi (ECA)</li>
+      <li>Maria Dora Genis Mourão (ECA)</li>
+      <li>Maria Lúcia de Souza Barros Pupo (ECA)</li>
+      <li>Maria Otilia Bocchini (ECA)</li>
+      <li>Miriam Rejowski (ECA)</li>
+      <li>Plínio Martins Filho (ECA)</li>
+      <li>Samira Youssef Campedelli (ECA)</li>
+      <li>Sidinéia Gomes Freitas (ECA)</li>
+      <li>Willy Corrêa de Oliveira (ECA)</li>
+
+
+CH750 CIÊNCIA DA INFORMAÇÃO E MUSEOLOGIA
+
+      <li>Heloisa Barbuy (MP)</li>
+      <li>Nair Yumiko Kobashi (ECA)</li>
+      <li>Ricardo Nogueira Bogus (MP)</li>
+      <li>Teresa Cristina Toledo de Paula (MP)</li>
+
+ 
+
+CH764 CIÊNCIAS SOCIAIS
+
+      <li>Lília Katri Moritz Schwarz (FFLCH)</li>
+
+
+CH770 EDUCAÇÃO, LAZER E RECREAÇÃO
+
+      <li>Circe Maria Fernandes Bittencourt (FE)</li>
+      <li>Nilson José Machado (FE)</li>
+
+ 
+
+CH780 HISTÓRIA GERAL, HISTÓRIA DO BRASIL E GEOGRAFIA
+
+      <li>Heloísa Liberalli Bellotto (FFLCH)</li>
+      <li>Hilário Franco Júnior (FFLCH)</li>
+      <li>Osvaldo Coggiola (FFLCH)</li>
+      <li>Raquel Glezer (MP)</li>
+
+CH790 LINGÜÍSTICA, LÍNGUAS, LITERATURA E TEORIA LITERÁRIA
+
+      <li>Masa Nomura (FFLCH)</li>
+
+  </div>
+
+  
+
+</div>
+</div>    
+    
+    
+    
+
+    <!-- ###### Footer ###### -->
+    </div>
 <!-- ###### Footer ###### -->
 
     <div class="footer">

@@ -62,7 +62,7 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
 <?php
 }
 ?>
-	<script type="application/javascript" src="js.php?tema=$_GET['tema']" charset="utf-8"></script>
+	<script type="application/javascript" src="js.php" charset="utf-8"></script>
 	<script type="text/javascript" src="<?php echo T3_WEBPATH;?>forms/jquery.validate.min.js"></script>
 	<?php
 	 if($_SESSION[$_SESSION["CFGURL"]]["lang"][2]!=='en')
@@ -293,9 +293,9 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
                                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Equipe <span class="caret"></span></a>
                                                         <ul class="dropdown-menu" role="menu">
                                                             <li><a href="equipe.php">Equipe de implementação</a></li>
-                                                            <li><a href="equipe_atual.php">Grupos de gestão atuais</a></li>
+                                                          <li><a href="?setLang=en">Equipes atuais</a></li>
                                                         </ul>
-                                                    </li>                                                     
+                                                    </li>                                                    
                                                     <li><a title="<?php echo MENU_Sobre;?>" href="sobre.php"><?php echo MENU_Sobre;?></a></li>                                                 
 						</ul>
 						<!-- Search Box -->
@@ -312,12 +312,92 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
 <!-- body, or middle section of our header -->   
 
 <!-- ###### Body Text ###### -->
-<?php
 
-	require_once(T3_ABSPATH . 'common/include/inc.inicio.php');
+<div class="row">
+<div class="col-md-12">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Equipe de gerenciamento do Vocabulário do SIBiUSP 2013-2015</h3>
+  </div>
+  <div class="panel-body">
+    
+      <h4>Grupo de Manutenção do Vocabulário:</h4>
+      <p>-Área de Ciências Biológicas:</p>
+      <li>Elaine Cristina Domingues Martins (IP)</li>
+      <li>Fabiana Gulin (EE)</li>      
+      <li>Hálida Cristina Rocha Fernandes (FSP)</li>
+      <br/>
+      <p>-Área de Ciências Exatas e Tecnologia:</p>
+      <li>Clélia Junko Kinzu Dimário (IQSC)</li>
+      <li>Ednéia Aparecida de Almeida (IF)</li>
+      <li>Juliana de Souza Moraes (ICMC)</li>
+      <br/>
+      <p>-Área de Ciências Humanas:</p>
+      <li>Maria dos Remédios da Silva (FD)</li>
+      <li>Rafael Mielli Rodrigues (FEA)</li>
+      <li>Sarah Lorenzon Ferreira (ECA)</li>
+      <br/>
+      <p>Sonia Regina Yole Guerra (IGc) - Coordenadora de Conteúdo</p>
+      <p>Tiago Rodrigo Marçal Murakami (DT/SIBiUSP) - Coordenador de Processo</p>
+      <p>Cibele A. C. Marques dos Santos (ECA) - Assessora Acadêmica</p><br/>
+      <p>Desenvolvimento do Software e da Base de Dados:</p>
+      <li>João Carlos Holland de Barcellos (DT/SIBiUSP)</li><br/>
+      <p>Adaptação e desenvolvimento do Software Tematres:</p>
+      <li>Jan Leduc de Lara (DT/SIBiUSP)</li>
+      <li>Tiago Rodrigo Marçal Murakami (DT/SIBiUSP)</li><br/>      
+      <p>Atualização do Vocabulário e Manutenção do DEDALUS:</p>
+      <li>Roseli Koizimi Matsuda (DT/SIBiUSP)</li>
+      <li>Cristina Miyuki Narukawa (DT/SIBiUSP)</li><br/>
+      <p>Grupo de Bibliotecas: formado por bibliotecários indexadores do SIBiUSP, com representação de todas as áreas do conhecimento.</p>
+      <p>São Paulo, dezembro de 2014</p>        
 
-?>
-<p></p>
+  </div>
+
+  
+
+</div>    
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Equipe de gerenciamento do Vocabulário do SIBiUSP 2011-2013</h3>
+  </div>
+  <div class="panel-body">
+   
+      <h4>Grupo de Manutenção do Vocabulário:</h4>
+      <p>-Área de Ciências Biológicas:</p>
+      <li>Elaine Cristina Domingues Martins (IP)</li>
+      <li>Hálida Cristina Rocha Fernandes (FSP)</li>
+      <li>Isabel Cristina Calherani (EE)</li><br/>
+      <p>-Área de Ciências Exatas e Tecnologia:</p>
+      <li>Sonia Regina Yole Guerra (IGc)</li>
+      <li>Juliana de Souza Moraes (ICMC)</li>
+      <li>Ednéia Aparecida de Almeida (IF)</li><br/>
+      <p>-Área de Ciências Humanas:</p>
+      <li>Eliana Mara Martins Ramalho (FFLCH)</li>
+      <li>Fabiana Gulin (FD)</li>
+      <li>Sarah Lorenzon Ferreira (ECA)</li><br/>
+      <p>Silvia Regina Saran DellaTorre (EP) - Coordenadora de Conteúdo</p>
+      <p>Adriana Nascimento Flamino (DT/SIBiUSP) - Coordenadora de Processo</p>
+      <p>Cibele A. C. Marques dos Santos (FM/ECA) - Assessora Acadêmica</p>
+      <p>Desenvolvimento do Software e da Base de Dados:</p>
+      <li>João Carlos Holland de Barcellos (DT/SIBiUSP)</li><br/>
+      <p>Atualização do Vocabulário e Manutenção do DEDALUS:</p>
+      <li>Roseli Koizimi Matsuda (DT/SIBiUSP)</li>
+      <li>Adriana Nascimento Flamino (DT/SIBiUSP)</li><br/>
+      <p>Grupo de Bibliotecas: formado por bibliotecários indexadores do SIBiUSP, com representação de todas as áreas do conhecimento.</p>
+      <p>São Paulo, setembro de 2011</p>   
+
+  </div>
+
+  
+
+</div>
+</div>    
+    
+    
+    
+
+    <!-- ###### Footer ###### -->
+    </div>
 <!-- ###### Footer ###### -->
 
     <div class="footer">
