@@ -548,7 +548,7 @@ $body.='</div>';
 $body.='<div class="panel-body">';
 $body.='<a target="_blank" href="http://www.bv.fapesp.br/pt/metapesquisa/?q='.$array[titTema].'">Pesquisar na Biblioteca Virtual da FAPESP</a>';
 $body.='</div>';
-
+/*
 $body.='<div class="panel-heading">';
 $body.='<h3 class="panel-title">Exportar termo</h3>';
 $body.='</div>';
@@ -566,7 +566,7 @@ $body.='        <li><a title="'.LABEL_verEsquema.' JavaScript Object Notation fo
 $body.='        <li><a title="'.LABEL_verEsquema.' JavaScript Object Notation for Linked Data" href="xml.php?jsonldTema='.$HTMLterminos[tema_id].'">JSON-LD</a></li>  ';
 $body.='</ul>';
 $body.='</div>';
-
+*/
 $body.='<div class="panel-heading">';
 $body.='<h3 class="panel-title">Pesquisar termo em outras fontes</h3>';
 $body.='</div>';
