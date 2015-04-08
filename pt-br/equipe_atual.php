@@ -324,7 +324,7 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
       <h4>Grupo de Manutenção do Vocabulário:</h4>
       <p>-Área de Ciências Biológicas:</p>
       <li>Elaine Cristina Domingues Martins (IP)</li>
-      <li>Fabiana Gulin (EE)</li>      
+      <li>Fabiana Gulin Longhi Palacio (EE)</li>      
       <li>Hálida Cristina Rocha Fernandes (FSP)</li>
       <br/>
       <p>-Área de Ciências Exatas e Tecnologia:</p>
