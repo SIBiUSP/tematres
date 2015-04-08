@@ -373,7 +373,7 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
       <li>Ednéia Aparecida de Almeida (IF)</li><br/>
       <p>-Área de Ciências Humanas:</p>
       <li>Eliana Mara Martins Ramalho (FFLCH)</li>
-      <li>Fabiana Gulin (FD)</li>
+      <li>Fabiana Gulin Longhi Palacio (FD)</li>
       <li>Sarah Lorenzon Ferreira (ECA)</li><br/>
       <p>Silvia Regina Saran DellaTorre (EP) - Coordenadora de Conteúdo</p>
       <p>Adriana Nascimento Flamino (DT/SIBiUSP) - Coordenadora de Processo</p>
