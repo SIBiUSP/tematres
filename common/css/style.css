@@ -114,17 +114,17 @@ dt:after{content:': ';}
 #hd .hd#portal_navigation_bar{background-color:#f4fafe;height:30px;line-height:30px;border-bottom:1px solid #c0d1db;color:#667d85;font-size:12px;padding:0 10px 0 20px;}
 #browse_navigation li.first{padding:0 !important;}
 #browse_navigation li.first a{padding:0 10px 0 0;}
-#browse_navigation .last a,#browse_navigation #history_control a,#browse_navigation #browse_control a{background:url(/images/arrowdown.gif) no-repeat right;padding:0 10px 0 0;}
+#browse_navigation .last a,#browse_navigation #history_control a,#browse_navigation #browse_control a{background:url(../images/arrowdown.gif) no-repeat right;padding:0 10px 0 0;}
 #browse_navigation #history_control a{padding-left:15px;}
 #browse_navigation #history_control #history_links a{width:267px;text-indent:0;padding-left:10px;}
 #browse_navigation li.last #history_control a{padding-left:25px;}
 #browse_navigation li.last #history_control{padding-right:0;}
-#browse_navigation #community_form{background:transparent url(/images/bg_comsearch.png) no-repeat scroll center top;position:absolute;margin-left:-116px;width:219px;padding:20px 0;}
+#browse_navigation #community_form{background:transparent url(../images/bg_comsearch.png) no-repeat scroll center top;position:absolute;margin-left:-116px;width:219px;padding:20px 0;}
 #browse_navigation #community_form form{padding:0 25px 30px 33px;}
 #browse_navigation #community_form form input{width:75%;float:left;border:1px solid #b8b8b8;height:19px;padding:0 3px;}
 #browse_navigation #community_form form input:focus{border:1px solid #434343;}
-#browse_navigation #community_form form input.go{cursor:pointer;float:left;background:#848383 url(/images/srchgo_btn.gif) repeat-x right center;color:#FFF;border:none;width:16%;height:21px;overflow:hidden;text-indent:-9999px;}
-#browse_navigation .last{background:url(/images/search.gif) no-repeat 8px center;}
+#browse_navigation #community_form form input.go{cursor:pointer;float:left;background:#848383 url(../images/srchgo_btn.gif) repeat-x right center;color:#FFF;border:none;width:16%;height:21px;overflow:hidden;text-indent:-9999px;}
+#browse_navigation .last{background:url(../images/search.gif) no-repeat 8px center;}
 #hd .hd#portal_navigation_bar #browse_navigation li.last a{padding-left:28px;}
 #hd .hd#portal_navigation_bar li a{border-left:1px solid #CCC;padding-left:10px;padding-right:10px;}
 #hd .hd#portal_navigation_bar li.first{border:0;}
@@ -339,7 +339,7 @@ margin:2px 0 20px 10px;
  width:30%; 
  color:#000000;
  text-decoration: none;  
-  border: 1px solid #d3d3d3/*{borderColorDefault}*/; background: #e6e6e6/*{bgColorDefault}*/ url(images/ui-bg_glass_75_e6e6e6_1x400.png)/*{bgImgUrlDefault}*/ 50%/*{bgDefaultXPos}*/ 50%/*{bgDefaultYPos}*/ repeat-x/*{bgDefaultRepeat}*/; font-weight: normal/*{fwDefault}*/; color: #555555/*{fcDefault}*/;
+  border: 1px solid #d3d3d3/*{borderColorDefault}*/; background: #e6e6e6/*{bgColorDefault}*/ url(../images/ui-bg_glass_75_e6e6e6_1x400.png)/*{bgImgUrlDefault}*/ 50%/*{bgDefaultXPos}*/ 50%/*{bgDefaultYPos}*/ repeat-x/*{bgDefaultRepeat}*/; font-weight: normal/*{fwDefault}*/; color: #555555/*{fcDefault}*/;
  } /* the overflow property removes extra width in IE */
  
 .myform input[type="button"]:hover,.myform input[type="submit"]:hover

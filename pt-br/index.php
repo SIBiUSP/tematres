@@ -227,7 +227,7 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
 					 <li>
                                             <!-- Button trigger modal -->
                                             <a type="button" data-toggle="modal" data-target="#login"><?php echo MENU_MiCuenta;?></a>
-                                            <!-- Modal -->
+					    <!-- Modal -->
                                             <div class="modal" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                               <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -284,9 +284,9 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
                                                     <li class="dropdown">
                                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Idioma <span class="caret"></span></a>
                                                         <ul class="dropdown-menu" role="menu">
-                                                          <li><a href="?setLang=pt">Português</a></li>
-                                                          <li><a href="?setLang=en">English</a></li>
-                                                          <li><a href="?setLang=es">Español</a></li>
+                                                          <li><a href="/pt-br">Português</a></li>
+                                                          <li><a href="/en">English</a></li>
+                                                          <!-- <li><a href="?setLang=es">Español</a></li> -->
                                                         </ul>
                                                     </li>
                                                     <li class="dropdown">
@@ -294,8 +294,10 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
                                                         <ul class="dropdown-menu" role="menu">
                                                             <li><a href="equipe.php">Equipe de implementação</a></li>
                                                             <li><a href="equipe_atual.php">Grupos de gestão atuais</a></li>
+							    <li><a title="<?php echo MENU_Catalogacao;?>" href="catalogacao.php"><?php echo MENU_Catalogacao;?></a></li> 
                                                         </ul>
-                                                    </li>                                                     
+                                                    </li>
+						                                                     
                                                     <li><a title="<?php echo MENU_Sobre;?>" href="sobre.php"><?php echo MENU_Sobre;?></a></li>                                                 
 						</ul>
 						<!-- Search Box -->

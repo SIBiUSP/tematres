@@ -284,12 +284,12 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
                                                     <li class="dropdown">
                                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Idioma <span class="caret"></span></a>
                                                         <ul class="dropdown-menu" role="menu">
-                                                          <li><a href="?setLang=pt">Português</a></li>
-                                                          <li><a href="?setLang=en">English</a></li>
-                                                          <li><a href="?setLang=es">Español</a></li>
+                                                          <li><a href="/pt-br">Português</a></li>
+                                                          <li><a href="/en">English</a></li>
+                                                          <!-- <li><a href="?setLang=es">Español</a></li> -->
                                                         </ul>
                                                     </li>
-                                                    <li><a title="<?php echo MENU_Sobre;?>" href="sobre.php"><?php echo MENU_Sobre;?></a></li>                                                 
+						    <li><a title="<?php echo MENU_Sobre;?>" href="sobre.php"><?php echo MENU_Sobre;?></a></li>                                                 
 						</ul>
 						<!-- Search Box -->
 							<form method="get" id="simple-search" name="simple-search" action="index.php" class="navbar-form navbar-right" onsubmit="return checkrequired(this)">
