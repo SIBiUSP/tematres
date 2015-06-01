@@ -68,6 +68,7 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
 	 if($_SESSION[$_SESSION["CFGURL"]]["lang"][2]!=='en')
 			echo '<script src="'.T3_WEBPATH.'forms/localization/messages_'.$_SESSION[$_SESSION["CFGURL"]]["lang"][2].'.js" type="text/javascript"></script>';
 	?>
+        
 </head>
 <body>
 <!--uspbarra - ínicio -->
@@ -316,12 +317,44 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
 <div class="row">
 <div class="col-md-12">
 
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Construtor de termo para catalogação</h3>
+</div>
+<div class="panel-body">
+<form method="get" id="termo" name="termo">
+<div class="form-group">
+<label class="sr-only" for="termo">Termo</label>
+<input type="text" class="form-control" id="termoresposta" placeholder="Termo">
+</div>    
+<form method="get" id="qualificador" name="qualificador">
+<div class="form-group">
+<label class="sr-only" for="qualificador">Qualificador</label>
+<input type="text" class="form-control" id="qualificadorresposta" placeholder="Qualificador">
+</div>
+<div class="form-group">
+<label class="sr-only" for="genero">Gênero e Forma</label>
+<input type="text" class="form-control" id="generoresposta" placeholder="Gênero e Forma">
+</div>
+<div class="form-group">
+<label class="sr-only" for="exampleInputPassword2">Data</label>
+<input type="text" class="form-control" id="dataresposta" placeholder="Data">
+</div>
+<div class="form-group">
+<label class="sr-only" for="geografico">Termo</label>
+<input type="text" class="form-control" id="geograficoresposta" placeholder="Geográfico">
+</div>
+<button type="button" class="btn btn-default" onclick="with(document.getElementById('resultwrapper').style){ visibility='visible'; display='inline'; } document.querySelector('#resultado').innerText = (document.querySelector('#termoresposta').value.trim()=='' ? '':(document.querySelector('#termoresposta').value.trim())) + (document.querySelector('#qualificadorresposta').value.trim()=='' ? '':('$$x' + document.querySelector('#qualificadorresposta').value.trim())) + (document.querySelector('#generoresposta').value.trim()==''?'':('$$v' + document.querySelector('#generoresposta').value.trim())) + (document.querySelector('#dataresposta').value.trim()==''?'':('$$y' + document.querySelector('#dataresposta').value.trim())) + (document.querySelector('#geograficoresposta').value.trim()==''?'':('$$z' + document.querySelector('#geograficoresposta').value.trim())) + '$$2larpcal';">Gerar</button>
+<br/><br/>
+<div class="form-group" id="resultwrapper" style="visibility:hidden;display:none;">
+<div id="resultado" class="alert alert-success" style="display:inline-block;float:left;"></div>
+</form>
+</div>
+</div>
+</div>
 
 </div>
-  
-    
-    
-    
+ 
 
 <!-- ###### Footer ###### -->
 </div>

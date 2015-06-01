@@ -1,0 +1,37 @@
+<!DOCTYPE webproject>
+<webproject>
+  <project type="Local" name="tematresView Update" encoding="utf8" >
+    <upload/>
+    <author/>
+    <email/>
+    <defaultDTD>-//W3C//DTD XHTML 1.0 Strict//EN</defaultDTD>
+    <item url="css/" uploadstatus="1" />
+    <item url="css/default/" uploadstatus="1" />
+    <item url="css/default/default.css" uploadstatus="1" />
+    <item url="css/default/wait.gif" uploadstatus="1" />
+    <item url="images/" uploadstatus="1" />
+    <item url="images/bullet_add.png" uploadstatus="1" />
+    <item url="images/bullet_go.png" uploadstatus="1" />
+    <item url="include/" uploadstatus="1" />
+    <item url="include/inc.functions.php" uploadstatus="1" />
+    <item url="js/" uploadstatus="1" />
+    <item url="js/common.js" uploadstatus="1" />
+    <item url="js/jquery-1.3.2.min.js" uploadstatus="1" />
+    <item url="js/jquery.form.js" uploadstatus="1" />
+    <item url="js/ui.core.js" uploadstatus="1" />
+    <item url="js/ui.tabs.js" uploadstatus="1" />
+    <item url="lang/" uploadstatus="1" />
+    <item url="lang/es_AR.php" uploadstatus="1" />
+    <item url="lang/fr_FR.php" uploadstatus="1" />
+    <item url="ajax_request_tematres.php" uploadstatus="1" />
+    <item url="licence_en.txt" uploadstatus="1" />
+    <item url="licence_fr.txt" uploadstatus="1" />
+    <item url="licence.txt" uploadstatus="1" />
+    <item url="list_thesaurus.php" uploadstatus="1" />
+    <item url="view_thesaurus.php" uploadstatus="1" />
+    <item url="" uploadstatus="1" />
+    <templates>templates/</templates>
+    <toolbars>toolbars/</toolbars>
+    <annotations/>
+  </project>
+</webproject>

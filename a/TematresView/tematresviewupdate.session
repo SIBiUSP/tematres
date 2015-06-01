@@ -1,0 +1,10 @@
+<!DOCTYPE webprojectsession>
+<webprojectsession>
+  <session usePreviewPrefix="0" previewPrefix="" >
+    <itemcursorpositions>
+      <item line="0" column="0" url="licence_fr.txt" />
+      <item line="22" column="61" url="view_thesaurus.php" />
+      <item line="35" column="21" url="include/inc.functions.php" />
+    </itemcursorpositions>
+  </session>
+</webprojectsession>

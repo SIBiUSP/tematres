@@ -644,3 +644,16 @@ ul{
 #breadcrumbs-two .current::before{
   content: normal;
 }
+
+
+/*Add and Remove*/
+
+.entry:not(:first-of-type)
+{
+    margin-top: 10px;
+}
+
+.glyphicon
+{
+    font-size: 12px;
+}

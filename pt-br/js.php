@@ -299,6 +299,48 @@ jQuery(function(){
 	}); 
 
 /* ---------------------------- */
+/* AJAX search suggest - Termo			*/
+/* ---------------------------- */
+
+
+var options, a;
+var onSelect = function(val, data) { $('#termo #id').val(data); $('#termo').submit(); };   
+jQuery(function(){
+
+	function formatItem(row) {
+		return row["value"] + " (<?php echo '<strong>'.LABEL_terminoExistente.'</strong>';?>)";
+	}
+
+	    options = {
+		    serviceUrl:'suggest_qual.php?tema=32583' ,
+		    minChars:2,
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    deferRequestBy: 0, //miliseconds	    
+		    noCache: false, //default is false, set to true to disable caching
+		    // callback function:
+		    onSelect: onSelect,
+	    	};
+	    a = $('#termoresposta').autocomplete(options);
+		
+	    var ac = $('#addTerms').autocomplete({
+		    minChars:2,
+		    serviceUrl:'suggest_qual.php?t=0&tema=32583',
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    formatResult: formatItem,
+		    delimiter: "\n",
+		    deferRequestBy: 0, //miliseconds
+		    noCache: false, //default is false, set to true to disable caching
+  			});
+	}); 
+   
+        
+/* ---------------------------- */
 /* AJAX search suggest - Qualificador			*/
 /* ---------------------------- */
 

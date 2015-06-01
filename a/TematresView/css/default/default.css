@@ -1,0 +1,53 @@
+/* feuille de style principale */
+* {
+	font-family: verdana, arial, sans-serif ;
+	font-size: 9pt ;
+}
+.loading {
+	clear:both;
+	background:url(wait.gif) left top no-repeat;
+	text-align:left;
+	padding:33px 0px 0px 0px;
+	font-size:12px;
+	display:none;
+}
+div.niveau_0 {
+}
+div.niveau_1 {
+	margin-left: 15px ;
+}
+body {
+	/* correction du bug IE5 */
+	margin: 0 ;
+	text-align: center ;
+}
+h2 {
+	margin-left: 50px ;
+	letter-spacing: 3px ;
+	text-align: left ;
+	font-size: 10pt ;
+	color: #808080 ;
+}
+div#popup a {
+	text-decoration: none ;
+	color: #EC6A00 ;
+}
+div#popup a:hover {
+	text-decoration: underline ;
+	color: #C55900 ;
+}
+div#popup a:visited {
+	color: #C55900 ;
+}
+a[href^="http://"]:after, div#contenu_expo a[href^="http://"]:after {
+	content: "\0000a0 \2197";
+}
+
+.fil_ariane {
+	font-size:8pt ;
+	background-color: #FFFAAE ;
+	padding:5px ;
+}
+div#popup img {
+	border: 0px solid #FFF ;
+}
