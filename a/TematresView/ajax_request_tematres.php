@@ -95,7 +95,7 @@ FUNCTIONS TO DO ACTIONS
 function get_top_term() {
 	global $adress,$thesaurus ;
 	$answer = "task=fetchTopTerms" ;
-	$xml = simplexml_load_file(file_get_contents("$adress?$answer")) ;
+	$xml = simplexml_load_file("$adress?$answer") ;
 	$rt = NULL ;
 	foreach ( $xml->result as $list ) {
 		foreach ($list as $term) {

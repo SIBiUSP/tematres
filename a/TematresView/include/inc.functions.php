@@ -27,7 +27,7 @@
 // 2. multi-tematres use : you have to give the common adress and the GET argument is the name of the dir you want to use
 // you can call the thesaurus with list_thesaurus.php if 'view' is in the right folder
 //$http_base = "http://127.0.0.1/svn_collectionlibre/collectionlibre/trunk/tematres" ;
-$http_base = "http://vocab.sibi.usp.br/pt-br/services.php" ;
+$http_base = "http://143.107.154.55/pt-br/services.php" ;
 
 // do you want suggestions if search have no results : true for yes / false for no
 $_suggestion = true ;
@@ -46,7 +46,7 @@ $_lang = "pt_BR" ;
 function personnal_add($id,$string,$options=NULL) {
 	global $form_input_name ;
 	$string = addslashes($string) ;
-	$insert = "<a href=\"#\" onClick=\"alert('$string');return false;\">
+	$insert = "<a href=\"#\" onClick=\"opener.document.formul.termoresposta.value = ( opener.document.formul.termoresposta.value + $string; ' );return false;\">
 		<img src=\"images/bullet_add.png\" />
 		</a>" ;
 	return $insert ;

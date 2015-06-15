@@ -8,9 +8,9 @@
 #
 include("config.tematres.php");
 $metadata=do_meta_tag();
- /*
-term reporter
-*/
+ #/*
+#term reporter
+#*/
 if(($_GET[mod]=='csv') && (substr($_GET[task],0,3)=='csv') && ($_SESSION[$_SESSION["CFGURL"]][ssuser_id]))  
 {
 	return wichReport($_GET[task]);
@@ -68,6 +68,17 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
 	 if($_SESSION[$_SESSION["CFGURL"]]["lang"][2]!=='en')
 			echo '<script src="'.T3_WEBPATH.'forms/localization/messages_'.$_SESSION[$_SESSION["CFGURL"]]["lang"][2].'.js" type="text/javascript"></script>';
 	?>
+
+<script>
+
+function creaPopup(url)
+{
+	tesauro=window.open(url, 
+	"Tesauro", 
+	"directories=no, menubar =no,status=no,toolbar=no,location=no,scrollbars=yes,fullscreen=no,height=600,width=450,left=500,top=0"
+	)
+}
+</script>        
         
 </head>
 <body>
@@ -324,7 +335,7 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
 <div class="panel-body">
 <form method="get" id="termo" name="termo">
 <div class="form-group">
-<label class="sr-only" for="termo">Termo</label>
+<label for="termoresposta"><a href="" onclick="creaPopup('../a/TematresView/view_thesaurus.php?source=vcusp&thesaurus=http://143.107.154.55/pt-br/services.php'); return false;">Consultar o VCUSP</a></label><br>
 <input type="text" class="form-control" id="termoresposta" placeholder="Termo">
 </div>    
 <form method="get" id="qualificador" name="qualificador">
@@ -344,10 +355,13 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
 <label class="sr-only" for="geografico">Termo</label>
 <input type="text" class="form-control" id="geograficoresposta" placeholder="Geográfico">
 </div>
-<button type="button" class="btn btn-default" onclick="with(document.getElementById('resultwrapper').style){ visibility='visible'; display='inline'; } document.querySelector('#resultado').innerText = (document.querySelector('#termoresposta').value.trim()=='' ? '':(document.querySelector('#termoresposta').value.trim())) + (document.querySelector('#qualificadorresposta').value.trim()=='' ? '':('$$x' + document.querySelector('#qualificadorresposta').value.trim())) + (document.querySelector('#generoresposta').value.trim()==''?'':('$$v' + document.querySelector('#generoresposta').value.trim())) + (document.querySelector('#dataresposta').value.trim()==''?'':('$$y' + document.querySelector('#dataresposta').value.trim())) + (document.querySelector('#geograficoresposta').value.trim()==''?'':('$$z' + document.querySelector('#geograficoresposta').value.trim())) + '$$2larpcal';">Gerar</button>
+<!--button type="button" class="btn btn-default" onclick="with(document.getElementById('resultwrapper').style){ visibility='visible'; display='inline'; } document.querySelector('#resultado').innerText = (document.querySelector('#termoresposta').value.trim()=='' ? '':(document.querySelector('#termoresposta').value.trim())) + (document.querySelector('#qualificadorresposta').value.trim()=='' ? '':('$$x' + document.querySelector('#qualificadorresposta').value.trim())) + (document.querySelector('#generoresposta').value.trim()==''?'':('$$v' + document.querySelector('#generoresposta').value.trim())) + (document.querySelector('#dataresposta').value.trim()==''?'':('$$y' + document.querySelector('#dataresposta').value.trim())) + (document.querySelector('#geograficoresposta').value.trim()==''?'':('$$z' + document.querySelector('#geograficoresposta').value.trim())) + '$$2larpcal';">Gerar</button>
 <br/><br/>
 <div class="form-group" id="resultwrapper" style="visibility:hidden;display:none;">
-<div id="resultado" class="alert alert-success" style="display:inline-block;float:left;"></div>
+<div id="resultado" class="alert alert-success" style="display:inline-block;float:left;"></div-->
+<button type="button" class="btn btn-default" onclick="with(document.getElementById('resultwrapper')){ appendChild(querySelectorAll('#resultado')[0].cloneNode(true)); with(querySelectorAll('#resultado')[querySelectorAll('#resultado').length-1]){ style.visibility='visible'; style.display='block'; innerText = (document.querySelector('#termoresposta').value.trim()=='' ? '':(document.querySelector('#termoresposta').value.trim())) + (document.querySelector('#qualificadorresposta').value.trim()=='' ? '':('$$x' + document.querySelector('#qualificadorresposta').value.trim())) + (document.querySelector('#generoresposta').value.trim()==''?'':('\$\$v' + document.querySelector('#generoresposta').value.trim())) + (document.querySelector('#dataresposta').value.trim()==''?'':('\$\$y' + document.querySelector('#dataresposta').value.trim())) + (document.querySelector('#geograficoresposta').value.trim()==''?'':('\$\$z' + document.querySelector('#geograficoresposta').value.trim())) + '\$\$2larpcal'; } } ">Gerar</button>
+<br><br>
+<div class="form-group" id="resultwrapper"><div id="resultado" name="resultado" class="alert alert-success" style="visibility:hidden;display:none;"></div></div>
 </form>
 </div>
 </div>
