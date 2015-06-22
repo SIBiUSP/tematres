@@ -78,7 +78,19 @@ function creaPopup(url)
 	"directories=no, menubar =no,status=no,toolbar=no,location=no,scrollbars=yes,fullscreen=no,height=600,width=450,left=500,top=0"
 	)
 }
-</script>        
+</script>
+
+<script type="text/javascript">
+<!--
+    function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+    }
+//-->
+</script>
         
 </head>
 <body>
@@ -333,15 +345,17 @@ function creaPopup(url)
 <h3 class="panel-title">Construtor de termo para catalogação</h3>
 </div>
 <div class="panel-body">
-<form method="get" id="termo" name="termo">
 <div class="form-group">
 <label for="termoresposta"><a href="" onclick="creaPopup('../a/TematresView/view_thesaurus.php?source=vcusp&thesaurus=http://143.107.154.55/pt-br/services.php'); return false;">Consultar o VCUSP</a></label><br>
 <input type="text" class="form-control" id="termoresposta" placeholder="Termo">
 </div>    
-<form method="get" id="qualificador" name="qualificador">
 <div class="form-group">
 <label class="sr-only" for="qualificador">Qualificador</label>
-<input type="text" class="form-control" id="qualificadorresposta" placeholder="Qualificador">
+<input type="text" class="form-control-add" id="qualificadorresposta" placeholder="Qualificador"> <button id="b1" class="btn add-more btn-success" type="button" onclick="toggle_visibility('quali2');">+</button>
+</div>
+<div class="form-group" id="quali2" style="display:none;">
+<label class="sr-only" for="qualificador2">Segundo qualificador</label>
+<input type="text" class="form-control-add" id="qualificadorresposta2" placeholder="Segundo qualificador"> <button id="b2" class="btn add-more btn-danger" type="button" onclick="toggle_visibility('quali2');">-</button>
 </div>
 <div class="form-group">
 <label class="sr-only" for="genero">Gênero e Forma</label>
@@ -352,18 +366,20 @@ function creaPopup(url)
 <input type="text" class="form-control" id="dataresposta" placeholder="Data">
 </div>
 <div class="form-group">
-<label class="sr-only" for="geografico">Termo</label>
-<input type="text" class="form-control" id="geograficoresposta" placeholder="Geográfico">
+<label class="sr-only" for="geografico">Geográfico</label>
+<input type="text" class="form-control-add" id="geograficoresposta" placeholder="Geográfico"> <button id="b3" class="btn add-more btn-success" type="button" onclick="toggle_visibility('geo2');">+</button>
+</div>
+<div id="geo2" style="display:none;">    
+<label class="sr-only" for="geografico2">Segundo geográfico</label>
+<input type="text" class="form-control-add" id="geograficoresposta2" placeholder="Segundo geográfico"> <button id="b4" class="btn add-more btn-danger" type="button" onclick="toggle_visibility('geo2');">-</button>
 </div>
 <!--button type="button" class="btn btn-default" onclick="with(document.getElementById('resultwrapper').style){ visibility='visible'; display='inline'; } document.querySelector('#resultado').innerText = (document.querySelector('#termoresposta').value.trim()=='' ? '':(document.querySelector('#termoresposta').value.trim())) + (document.querySelector('#qualificadorresposta').value.trim()=='' ? '':('$$x' + document.querySelector('#qualificadorresposta').value.trim())) + (document.querySelector('#generoresposta').value.trim()==''?'':('$$v' + document.querySelector('#generoresposta').value.trim())) + (document.querySelector('#dataresposta').value.trim()==''?'':('$$y' + document.querySelector('#dataresposta').value.trim())) + (document.querySelector('#geograficoresposta').value.trim()==''?'':('$$z' + document.querySelector('#geograficoresposta').value.trim())) + '$$2larpcal';">Gerar</button>
 <br/><br/>
 <div class="form-group" id="resultwrapper" style="visibility:hidden;display:none;">
 <div id="resultado" class="alert alert-success" style="display:inline-block;float:left;"></div-->
-<button type="button" class="btn btn-default" onclick="with(document.getElementById('resultwrapper')){ appendChild(querySelectorAll('#resultado')[0].cloneNode(true)); with(querySelectorAll('#resultado')[querySelectorAll('#resultado').length-1]){ style.visibility='visible'; style.display='block'; innerText = (document.querySelector('#termoresposta').value.trim()=='' ? '':(document.querySelector('#termoresposta').value.trim())) + (document.querySelector('#qualificadorresposta').value.trim()=='' ? '':('$$x' + document.querySelector('#qualificadorresposta').value.trim())) + (document.querySelector('#generoresposta').value.trim()==''?'':('\$\$v' + document.querySelector('#generoresposta').value.trim())) + (document.querySelector('#dataresposta').value.trim()==''?'':('\$\$y' + document.querySelector('#dataresposta').value.trim())) + (document.querySelector('#geograficoresposta').value.trim()==''?'':('\$\$z' + document.querySelector('#geograficoresposta').value.trim())) + '\$\$2larpcal'; } } ">Gerar</button>
+<button type="button" class="btn btn-default" onclick="with(document.getElementById('resultwrapper')){ appendChild(querySelectorAll('#resultado')[0].cloneNode(true)); with(querySelectorAll('#resultado')[querySelectorAll('#resultado').length-1]){ style.visibility='visible'; style.display='block'; innerText = (document.querySelector('#termoresposta').value.trim()=='' ? '':(document.querySelector('#termoresposta').value.trim())) + (document.querySelector('#qualificadorresposta').value.trim()=='' ? '':('$$x' + document.querySelector('#qualificadorresposta').value.trim())) + (document.querySelector('#qualificadorresposta2').value.trim()=='' ? '':('$$x' + document.querySelector('#qualificadorresposta2').value.trim())) + (document.querySelector('#generoresposta').value.trim()==''?'':('\$\$v' + document.querySelector('#generoresposta').value.trim())) + (document.querySelector('#dataresposta').value.trim()==''?'':('\$\$y' + document.querySelector('#dataresposta').value.trim())) + (document.querySelector('#geograficoresposta').value.trim()==''?'':('\$\$z' + document.querySelector('#geograficoresposta').value.trim())) + (document.querySelector('#geograficoresposta2').value.trim()==''?'':('\$\$z' + document.querySelector('#geograficoresposta2').value.trim())) + '\$\$2larpcal'; } } ">Gerar</button>
 <br><br>
 <div class="form-group" id="resultwrapper"><div id="resultado" name="resultado" class="alert alert-success" style="visibility:hidden;display:none;"></div></div>
-</form>
-</div>
 </div>
 </div>
 

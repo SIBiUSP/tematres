@@ -381,7 +381,50 @@ jQuery(function(){
   			});
 	}); 
 
+/* ---------------------------- */
+/* AJAX search suggest - Qualificador 2			*/
+/* ---------------------------- */
 
+
+var options, a;
+var onSelect = function(val, data) { $('#qualificador2 #id').val(data); $('#qualificador2').submit(); };   
+jQuery(function(){
+
+	function formatItem(row) {
+		return row["value"] + " (<?php echo '<strong>'.LABEL_terminoExistente.'</strong>';?>)";
+	}
+
+	    options = {
+		    serviceUrl:'suggest_qual.php?tema=45185' ,
+		    minChars:2,
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    deferRequestBy: 0, //miliseconds	    
+		    noCache: false, //default is false, set to true to disable caching
+		    // callback function:
+		    onSelect: onSelect,
+	    	};
+	    a = $('#qualificadorresposta2').autocomplete(options);
+		
+	    var ac = $('#addTerms').autocomplete({
+		    minChars:2,
+		    serviceUrl:'suggest_qual.php?t=0&tema=45185',
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    formatResult: formatItem,
+		    delimiter: "\n",
+		    deferRequestBy: 0, //miliseconds
+		    noCache: false, //default is false, set to true to disable caching
+  			});
+	}); 
+
+
+        
+        
 /* ---------------------------- */
 /* AJAX search suggest - Gênero			*/
 /* ---------------------------- */
@@ -397,7 +440,7 @@ jQuery(function(){
 
 	    options = {
 		    serviceUrl:'suggest_qual.php?tema=32584' ,
-		    minChars:2,
+		    minChars:1,
 		    delimiter: /(,|;)\s*/, // regex or character
 		    maxHeight:400,
 		    width:600,
@@ -410,7 +453,7 @@ jQuery(function(){
 	    a = $('#generoresposta').autocomplete(options);
 		
 	    var ac = $('#addTerms').autocomplete({
-		    minChars:2,
+		    minChars:1,
 		    serviceUrl:'suggest_qual.php?t=0&tema=32584',
 		    delimiter: /(,|;)\s*/, // regex or character
 		    maxHeight:400,
@@ -465,7 +508,46 @@ jQuery(function(){
   			});
 	}); 
 
+/* ---------------------------- */
+/* AJAX search suggest - Geográfico	2		*/
+/* ---------------------------- */
 
+
+var options, a;
+var onSelect = function(val, data) { $('#geografico2 #id').val(data); $('#geografico2').submit(); };   
+jQuery(function(){
+
+	function formatItem(row) {
+		return row["value"] + " (<?php echo '<strong>'.LABEL_terminoExistente.'</strong>';?>)";
+	}
+
+	    options = {
+		    serviceUrl:'suggest_qual.php?tema=32628' ,
+		    minChars:2,
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    deferRequestBy: 0, //miliseconds	    
+		    noCache: false, //default is false, set to true to disable caching
+		    // callback function:
+		    onSelect: onSelect,
+	    	};
+	    a = $('#geograficoresposta2').autocomplete(options);
+		
+	    var ac = $('#addTerms').autocomplete({
+		    minChars:2,
+		    serviceUrl:'suggest_qual.php?t=0&tema=32584',
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    formatResult: formatItem,
+		    delimiter: "\n",
+		    deferRequestBy: 0, //miliseconds
+		    noCache: false, //default is false, set to true to disable caching
+  			});
+	}); 
 
 
         
