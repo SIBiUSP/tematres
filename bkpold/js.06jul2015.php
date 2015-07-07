@@ -257,59 +257,103 @@ $(function() {
            });       
 });
 
-$(function(){
+/* ---------------------------- */
+/* AJAX search suggest			*/
+/* ---------------------------- */
+
+
+var options, a;
+var onSelect = function(val, data) { $('#simple-search #id').val(data); $('#simple-search').submit(); };   
+jQuery(function(){
 
 	function formatItem(row) {
-	    return row["value"] + " (<?php echo '<strong>'.LABEL_terminoExistente.'</strong>';?>)";
+		return row["value"] + " (<?php echo '<strong>'.LABEL_terminoExistente.'</strong>';?>)";
 	}
 
-	var addTerms = $('#addTerms').autocomplete({
-	    minChars:2,
-	    serviceUrl:'suggest.php?t=0&amp;',
-	    delimiter: /(,|;)\s*/, // regex or character
-	    maxHeight:400,
-	    width:600,
-	    zIndex: 9999,
-	    formatResult: formatItem,
-	    delimiter: "\n",
-	    deferRequestBy: 0, //miliseconds
-	    noCache: false, //default is false, set to true to disable caching
-	});
+	    options = {
+		    serviceUrl:'suggest.php' ,
+		    minChars:2,
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    deferRequestBy: 0, //miliseconds	    
+		    noCache: false, //default is false, set to true to disable caching
+		    // callback function:
+		    onSelect: onSelect,
+	    	};
+	    a = $('#query').autocomplete(options);
+		
+	    var ac = $('#addTerms').autocomplete({
+		    minChars:2,
+		    serviceUrl:'suggest.php?t=0&amp;',
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    formatResult: formatItem,
+		    delimiter: "\n",
+		    deferRequestBy: 0, //miliseconds
+		    noCache: false, //default is false, set to true to disable caching
+  			});
+	}); 
 
-	/* --------*/
-	/* suggest */
-	/* --------*/
-	var query = $('#query').autocomplete({
-	    serviceUrl:'suggest.php' ,
-	    minChars:2,
-	    delimiter: /(,|;)\s*/, // regex or character
-	    maxHeight:400,
-	    width:600,
-	    zIndex: 9999,
-	    deferRequestBy: 0, //miliseconds	    
-	    noCache: false, //default is false, set to true to disable caching
-	    onSelect: function(s){ $('#simple-search #id').val(s.value); $('#simple-search').submit(); }
-	});
-	
-	/* ------*/
-	/* Termo */
-	/* ------*/
-	var termoresposta = $('#termoresposta').autocomplete({
-		serviceUrl:'suggest_qual.php?tema=32583' ,
-		minChars:2,
-		delimiter: /(,|;)\s*/, // regex or character
-		maxHeight:400,
-		width:600,
-		zIndex: 9999,
-		deferRequestBy: 0, //miliseconds	    
-		noCache: false, //default is false, set to true to disable caching
-		onSelect: function(s){ this.dataset.dtermoresposta = s.value; }
-	});
-	
-	/* ------------ */
-	/* Qualificador */
-	/* ------------ */
-	var qualificadorresposta = $('#qualificadorresposta').autocomplete({
+/* ---------------------------- */
+/* AJAX search suggest - Termo			*/
+/* ---------------------------- */
+
+
+var options, a;
+var onSelect = function(val, data) { $('#termo #id').val(data); $('#termo').submit(); };   
+jQuery(function(){
+
+	function formatItem(row) {
+		return row["value"] + " (<?php echo '<strong>'.LABEL_terminoExistente.'</strong>';?>)";
+	}
+
+	    options = {
+		    serviceUrl:'suggest_qual.php?tema=32583' ,
+		    minChars:2,
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    deferRequestBy: 0, //miliseconds	    
+		    noCache: false, //default is false, set to true to disable caching
+		    // callback function:
+		    onSelect: onSelect,
+	    	};
+	    a = $('#termoresposta').autocomplete(options);
+		
+	    var ac = $('#addTerms').autocomplete({
+		    minChars:2,
+		    serviceUrl:'suggest_qual.php?t=0&tema=32583',
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    formatResult: formatItem,
+		    delimiter: "\n",
+		    deferRequestBy: 0, //miliseconds
+		    noCache: false, //default is false, set to true to disable caching
+  			});
+	}); 
+   
+        
+/* ---------------------------- */
+/* AJAX search suggest - Qualificador			*/
+/* ---------------------------- */
+
+
+var options, a;
+var onSelect = function(val, data) { $('#qualificador #id').val(data); $('#qualificador').submit(); };   
+jQuery(function(){
+
+	function formatItem(row) {
+		return row["value"] + " (<?php echo '<strong>'.LABEL_terminoExistente.'</strong>';?>)";
+	}
+
+	    options = {
 		    serviceUrl:'suggest_qual.php?tema=45185' ,
 		    minChars:2,
 		    delimiter: /(,|;)\s*/, // regex or character
@@ -318,178 +362,195 @@ $(function(){
 		    zIndex: 9999,
 		    deferRequestBy: 0, //miliseconds	    
 		    noCache: false, //default is false, set to true to disable caching
-		    onSelect: function(s){  this.dataset.dqualificadorresposta = s.value; }
-	});
-	
-	/* ---------------*/
-	/* Qualificador 2 */
-	/* ---------------*/
-	var qualificadorresposta2 = $('#qualificadorresposta2').autocomplete({
-	    serviceUrl:'suggest_qual.php?tema=45185' ,
-	    minChars:2,
-	    delimiter: /(,|;)\s*/, // regex or character
-	    maxHeight:400,
-	    width:600,
-	    zIndex: 9999,
-	    deferRequestBy: 0, //miliseconds	    
-	    noCache: false, //default is false, set to true to disable caching
-	    onSelect: function(s){  this.dataset.dqualificadorresposta2 = s.value; }
-    	});
-	
-	/* -------*/
-	/* Gênero */
-	/* -------*/
-	var generoresposta = $('#generoresposta').autocomplete({
-	    serviceUrl:'suggest_qual.php?tema=32584' ,
-	    minChars:1,
-	    delimiter: /(,|;)\s*/, // regex or character
-	    maxHeight:400,
-	    width:600,
-	    zIndex: 9999,
-	    deferRequestBy: 0, //miliseconds	    
-	    noCache: false, //default is false, set to true to disable caching
-	    // callback function:
-	    // onSelect: onSelect,
-	    onSelect: function(s){  this.dataset.dgeneroresposta = s.value; }
-    	});
-
-	/* -----------*/
-	/* Geográfico */
-	/* -----------*/
-	var geograficoresposta = $('#geograficoresposta').autocomplete({
-	    serviceUrl:'suggest_qual.php?tema=32628' ,
-	    minChars:2,
-	    delimiter: /(,|;)\s*/, // regex or character
-	    maxHeight:400,
-	    width:600,
-	    zIndex: 9999,
-	    deferRequestBy: 0, //miliseconds	    
-	    noCache: false, //default is false, set to true to disable caching
-	    onSelect: function(s){  this.dataset.dgeograficoresposta = s.value; }
-    	});
-
-	/* ------------*/
-	/* Geográfico2 */
-	/* ------------*/
-	var geograficoresposta2 = $('#geograficoresposta2').autocomplete({
-	    serviceUrl:'suggest_qual.php?tema=32628' ,
-	    minChars:2,
-	    delimiter: /(,|;)\s*/, // regex or character
-	    maxHeight:400,
-	    width:600,
-	    zIndex: 9999,
-	    deferRequestBy: 0, //miliseconds	    
-	    noCache: false, //default is false, set to true to disable caching
-	    onSelect: function(s){  this.dataset.dgeograficoresposta2 = s.value; }
-    	});
-
-
-});
-
-// var onSelect = function(val, data) { $('#termo #id').val(data); $('#termo').submit(); };
-// var onSelect = function(val, data) { $('#qualificador #id').val(data); $('#qualificador').submit(); };   
-// var onSelect = function(val, data) { $('#qualificador2 #id').val(data); $('#qualificador2').submit(); };
-// var onSelect = function(val, data) { $('#genero #id').val(data); $('#genero').submit(); };   
-// var onSelect = function(val, data) { $('#geografico #id').val(data); $('#geografico').submit(); };   
-// var onSelect = function(val, data) { $('#geografico2 #id').val(data); $('#geografico2').submit(); };   
-
-
-/* ---------------------------- */
-/* BOTAO GERAR                  */
-/* ---------------------------- */
-
-
-function btngerar(){
-	with(document.getElementById('resultwrapper')){
-	
-		var resultstr = strtermocatalog(xtr('termoresposta'),
-						xtr('qualificadorresposta'),
-						xtr('qualificadorresposta2'),
-						xtr('generoresposta'),
-						document.getElementById('dataresposta').value.trim(),
-						xtr('geograficoresposta'),
-						xtr('geograficoresposta2'));
+		    // callback function:
+		    onSelect: onSelect,
+	    	};
+	    a = $('#qualificadorresposta').autocomplete(options);
 		
-		if(resultstr.trim().length > 0){
-			insertBefore(document.querySelectorAll('#resultado')[document.querySelectorAll('#resultado').length-1].cloneNode(true),document.querySelectorAll('#resultado')[0]);
-			with(document.querySelectorAll('#resultado')[0]){
-				style.visibility='visible';
-				style.display='table-row';
-				childNodes[1].innerText = resultstr;
-				var client = new ZeroClipboard(childNodes[3].childNodes[1]);
-				client.on( "ready", function( event ) {
-				  client.on("copy", function( event ) {
-				    event.clipboardData.setData('text/plain', childNodes[1].innerText);
-				  });
-				});
-			}
-		}
-	}
-}
+	    var ac = $('#addTerms').autocomplete({
+		    minChars:2,
+		    serviceUrl:'suggest_qual.php?t=0&tema=45185',
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    formatResult: formatItem,
+		    delimiter: "\n",
+		    deferRequestBy: 0, //miliseconds
+		    noCache: false, //default is false, set to true to disable caching
+  			});
+	}); 
 
-function strtermocatalog(t,q1,q2,gf,d,g1,g2){
-	if(htr(t)){
-		msgseterr('');
-		return (t + ctr(q1,'\$\$x') + ctr(q2,'\$\$x') + ctr(gf,'\$\$v') + ctr(d,'\$\$y') + ctr(g1,'\$\$z') + ctr(g2,'\$\$z') + '\$\$2larpcal');
-	}
-	else if(!htr(q1) && !htr(q2)){
-		     if(htr(gf)) {
-			msgseterr('');
-			return (gf + ctr(d,'\$\$y') + ctr(g1,'\$\$z') + ctr(g2,'\$\$z') + '\$\$2larpcal');
-		     }
-		     else if(htr(g1)) {
-				msgseterr('');
-				return (g1 + ctr(g2,'\$\$z') + ctr(d,'\$\$y') + '\$\$2larpcal');
-			  }
-			  else if(htr(g2)){
-					msgseterr('');
-					return (g2 + ctr(d,'\$\$y') + '\$\$2larpcal');
-				}
-				else {
-					msgseterr('dados insuficientes.');
-					return '';
-				}
-	     }
-	     else {
-		msgseterr('Qualificador exige Termo.');
-		return '';
-	     }
-}
+/* ---------------------------- */
+/* AJAX search suggest - Qualificador 2			*/
+/* ---------------------------- */
 
-function msgseterr(strmsgerr){
-	if(htr(strmsgerr)){
-		document.getElementById('btngerid').style.backgroundColor='red';
-		document.getElementById('msgerr').innerText = strmsgerr;
-	}
-	else {
-		document.getElementById('btngerid').style.backgroundColor='transparent';
-		document.getElementById('msgerr').innerText = '';
-	}
-}
 
-function ctr(strx,cif){
-	if(htr(strx)){
-		return (cif+strx.trim());
-	}
-	return ''
-}
+var options, a;
+var onSelect = function(val, data) { $('#qualificador2 #id').val(data); $('#qualificador2').submit(); };   
+jQuery(function(){
 
-function htr(strx){
-	if(strx.trim().length > 0){
-		return true;
+	function formatItem(row) {
+		return row["value"] + " (<?php echo '<strong>'.LABEL_terminoExistente.'</strong>';?>)";
 	}
-	return false;
-}
 
-function xtr(idprt){
-	var vparte = document.querySelector('#' + idprt).value;
-	var dparte = document.querySelector('#' + idprt).dataset['d' + idprt];
-	if(vparte.trim()==dparte.trim()){
-		return vparte.trim();
+	    options = {
+		    serviceUrl:'suggest_qual.php?tema=45185' ,
+		    minChars:2,
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    deferRequestBy: 0, //miliseconds	    
+		    noCache: false, //default is false, set to true to disable caching
+		    // callback function:
+		    onSelect: onSelect,
+	    	};
+	    a = $('#qualificadorresposta2').autocomplete(options);
+		
+	    var ac = $('#addTerms').autocomplete({
+		    minChars:2,
+		    serviceUrl:'suggest_qual.php?t=0&tema=45185',
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    formatResult: formatItem,
+		    delimiter: "\n",
+		    deferRequestBy: 0, //miliseconds
+		    noCache: false, //default is false, set to true to disable caching
+  			});
+	}); 
+
+
+        
+        
+/* ---------------------------- */
+/* AJAX search suggest - Gênero			*/
+/* ---------------------------- */
+
+
+var options, a;
+var onSelect = function(val, data) { $('#genero #id').val(data); $('#genero').submit(); };   
+jQuery(function(){
+
+	function formatItem(row) {
+		return row["value"] + " (<?php echo '<strong>'.LABEL_terminoExistente.'</strong>';?>)";
 	}
-	return '';
-}
 
+	    options = {
+		    serviceUrl:'suggest_qual.php?tema=32584' ,
+		    minChars:1,
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    deferRequestBy: 0, //miliseconds	    
+		    noCache: false, //default is false, set to true to disable caching
+		    // callback function:
+		    onSelect: onSelect,
+	    	};
+	    a = $('#generoresposta').autocomplete(options);
+		
+	    var ac = $('#addTerms').autocomplete({
+		    minChars:1,
+		    serviceUrl:'suggest_qual.php?t=0&tema=32584',
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    formatResult: formatItem,
+		    delimiter: "\n",
+		    deferRequestBy: 0, //miliseconds
+		    noCache: false, //default is false, set to true to disable caching
+  			});
+	}); 
+
+
+/* ---------------------------- */
+/* AJAX search suggest - Geográfico			*/
+/* ---------------------------- */
+
+
+var options, a;
+var onSelect = function(val, data) { $('#geografico #id').val(data); $('#geografico').submit(); };   
+jQuery(function(){
+
+	function formatItem(row) {
+		return row["value"] + " (<?php echo '<strong>'.LABEL_terminoExistente.'</strong>';?>)";
+	}
+
+	    options = {
+		    serviceUrl:'suggest_qual.php?tema=32628' ,
+		    minChars:2,
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    deferRequestBy: 0, //miliseconds	    
+		    noCache: false, //default is false, set to true to disable caching
+		    // callback function:
+		    onSelect: onSelect,
+	    	};
+	    a = $('#geograficoresposta').autocomplete(options);
+		
+	    var ac = $('#addTerms').autocomplete({
+		    minChars:2,
+		    serviceUrl:'suggest_qual.php?t=0&tema=32584',
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    formatResult: formatItem,
+		    delimiter: "\n",
+		    deferRequestBy: 0, //miliseconds
+		    noCache: false, //default is false, set to true to disable caching
+  			});
+	}); 
+
+/* ---------------------------- */
+/* AJAX search suggest - Geográfico	2		*/
+/* ---------------------------- */
+
+
+var options, a;
+var onSelect = function(val, data) { $('#geografico2 #id').val(data); $('#geografico2').submit(); };   
+jQuery(function(){
+
+	function formatItem(row) {
+		return row["value"] + " (<?php echo '<strong>'.LABEL_terminoExistente.'</strong>';?>)";
+	}
+
+	    options = {
+		    serviceUrl:'suggest_qual.php?tema=32628' ,
+		    minChars:2,
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    deferRequestBy: 0, //miliseconds	    
+		    noCache: false, //default is false, set to true to disable caching
+		    // callback function:
+		    onSelect: onSelect,
+	    	};
+	    a = $('#geograficoresposta2').autocomplete(options);
+		
+	    var ac = $('#addTerms').autocomplete({
+		    minChars:2,
+		    serviceUrl:'suggest_qual.php?t=0&tema=32584',
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    formatResult: formatItem,
+		    delimiter: "\n",
+		    deferRequestBy: 0, //miliseconds
+		    noCache: false, //default is false, set to true to disable caching
+  			});
+	}); 
+
+
+        
 
 /* ---------------------------- */
 /* OBSERVATORIO					*/
