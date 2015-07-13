@@ -479,7 +479,7 @@ $body.=$HTMLterminos[HTMLterminos]["EQ"];
 $body.=HTMLtargetTerms($array[tema_id]);
 $body.=HTMLURI4term($array[tema_id]);
 
-
+/*
 $body.='</div>';
 if($array["isMetaTerm"]==1)
 {
@@ -518,11 +518,16 @@ $body.='<div id="resultado" class="alert alert-success" style="display:inline-bl
 $body.='</form>';
 $body.='</div>';
 $body.='</div>';
-$body.='</div>';
+
 }
+ * 
+ */
+$body.='</div>';
 $body.='</div>';
 $body.='<div class="col-md-4">';
 $body.='<div class="panel panel-default">';
+
+
 /*
  * $HTMLterminos[tema_id] es el ID del término válido siempre
  * 
