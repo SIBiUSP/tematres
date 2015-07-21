@@ -71,15 +71,14 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
 	?>
 
 <script>
-
-function creaPopup(url)
-{
-	tesauro=window.open(url, 
-	"Tesauro", 
-	"directories=no, menubar =no,status=no,toolbar=no,location=no,scrollbars=yes,fullscreen=no,height=600,width=450,left=500,top=0"
-	)
-}
-</script>
+    function creaPopup(url)
+    {
+      tesauro=window.open(url, 
+      "Tesauro", 
+      "directories=no, menubar =no,status=no,toolbar=no,location=no,scrollbars=yes,fullscreen=no,height=600,width=450,left=500,top=0"
+      )
+    }
+ </script>
 
 <script type="text/javascript">
 <!--
@@ -347,9 +346,14 @@ function creaPopup(url)
 </div>
 <div class="panel-body">
 <div class="form-group">
-<label for="termoresposta"><a href="" onclick="creaPopup('../a/TematresView/view_thesaurus.php?source=vcusp&thesaurus=http://143.107.154.55/pt-br/services.php'); return false;">Consultar o VCUSP</a></label><br>
+    <form name="construtor">    
+<label for="termoresposta">
+   <a href="#" onclick="creaPopup('../a/popterms/index.php?t=termoresposta&f=construtor&v=http://143.107.154.55/pt-br/services.php&loadConfig=1'); return false;">Consultar o VCUSP</a>
+</label>
+<br>
 <input type="text" class="form-control" id="termoresposta" placeholder="Termo" data-dtermoresposta="" onblur="if(this.value!=this.dataset['dtermoresposta']) this.value='';" >
 </div>
+    </form>
 <div class="form-group">
 <label class="sr-only" for="qualificador">Qualificador</label>
 <input type="text" class="form-control-add" id="qualificadorresposta" placeholder="Qualificador" data-dqualificadorresposta="" onblur="if(this.value!=this.dataset['dqualificadorresposta']) this.value='';" > <button id="b1" class="btn add-more btn-success" type="button" onclick="toggle_visibility('quali2');">+</button>
