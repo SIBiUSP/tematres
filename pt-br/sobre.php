@@ -3,73 +3,39 @@
 #                                                                        #
 #   Copyright (C) 2004-2008 Diego Ferreyra tematres@r020.com.ar
 #   Distribuido bajo Licencia GNU Public License, versión 2 (de junio de 1.991) Free Software Foundation
-#  
+#
 ###############################################################################################################
 #
 include("config.tematres.php");
 $metadata=do_meta_tag();
- /*
-term reporter
-*/
-if(($_GET[mod]=='csv') && (substr($_GET[task],0,3)=='csv') && ($_SESSION[$_SESSION["CFGURL"]][ssuser_id]))  
-{
-	return wichReport($_GET[task]);
-}
-
-$search_string ='';
-$search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,FORM_LABEL_buscar)) : '';
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo LANG;?>">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="<?php echo T3_WEBPATH;?>bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link href="<?php echo T3_WEBPATH;?>bootstrap/submenu/css/bootstrap-submenu.min.css" rel="stylesheet">
+	 <link href="<?php echo T3_WEBPATH;?>css/t3style.css" rel="stylesheet">
 
-<head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-	<?php echo $metadata["metadata"]; ?>
-	<link type="image/x-icon" href="http://www.producao.usp.br/themes/BDPI/images/faviconUSP.ico" rel="icon" />
-	<link type="image/x-icon" href="http://www.producao.usp.br/themes/BDPI/images/faviconUSP.ico" rel="shortcut icon" />
-	<link rel="stylesheet" href="<?php echo T3_WEBPATH;?>css/style.css" type="text/css" media="screen" />
-	<!-- <link rel="stylesheet" href="<?php echo T3_WEBPATH;?>css/print.css" type="text/css" media="print" /> -->
 
-	<script type="text/javascript" src="<?php echo T3_WEBPATH;?>jq/lib/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="<?php echo T3_WEBPATH;?>jq/jquery.autocomplete.js"></script>   
-	<script type="text/javascript" src="<?php echo T3_WEBPATH;?>jq/jquery.mockjax.js"></script>
-	<script type="text/javascript" src="<?php echo T3_WEBPATH;?>jq/tree.jquery.js"></script>
-	
-	<link rel="stylesheet" type="text/css" href="<?php echo T3_WEBPATH;?>css/jquery.autocomplete.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo T3_WEBPATH;?>css/jqtree.css" />
-        
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="<?php echo T3_WEBPATH;?>bootstrap/css/vcusp-theme.css">
-
-	<!-- Bootstrap JS -->
-	<script type='text/javascript' src='<?php echo T3_WEBPATH;?>jq/bdpi.min.js'></script>
-	
-	<?php
-	if ($_SESSION[$_SESSION["CFGURL"]][ssuser_nivel]>0) 
-	{
-	?>
-
-	<!-- Load TinyMCE -->
-	<script type="text/javascript" src="<?php echo T3_WEBPATH;?>tiny_mce/jquery.tinymce.js"></script>
-	<!-- /TinyMCE -->
-
-	<script type="text/javascript" src="<?php echo T3_WEBPATH;?>jq/fg.menu.js"></script>   
-	<link type="text/css" href="<?php echo T3_WEBPATH;?>jq/fg.menu.css" media="screen" rel="stylesheet" />
-	<link type="text/css" href="<?php echo T3_WEBPATH;?>jq/theme/ui.all.css" media="screen" rel="stylesheet" />				
-	<script type="text/javascript" src="<?php echo T3_WEBPATH;?>jq/jquery.jeditable.mini.js" charset="utf-8"></script>
-	
-
-<?php
-}
-?>
-	<script type="application/javascript" src="js.php" charset="utf-8"></script>
-	<script type="text/javascript" src="<?php echo T3_WEBPATH;?>forms/jquery.validate.min.js"></script>
-	<?php
-	 if($_SESSION[$_SESSION["CFGURL"]]["lang"][2]!=='en')
-			echo '<script src="'.T3_WEBPATH.'forms/localization/messages_'.$_SESSION[$_SESSION["CFGURL"]]["lang"][2].'.js" type="text/javascript"></script>';
-	?>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <?php echo $metadata["metadata"]; ?>
+  <link type="image/x-icon" href="<?php echo T3_WEBPATH;?>images/tematres.ico" rel="icon" />
+  <link type="image/x-icon" href="<?php echo T3_WEBPATH;?>images/tematres.ico" rel="shortcut icon" />
+  
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?php echo T3_WEBPATH;?>bootstrap/css/vcusp-theme.css">  
+  
 </head>
-<body>
+ <body>
+     
 <!--uspbarra - ínicio -->
 	<div id="uspbarra" style="background-color:transparent;border-style:none">
 		<div class="uspLogo"  style="background-color:transparent;border-style:none">
@@ -185,27 +151,32 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
                                                     </div> </div>              
 				</div>
 	</div>
-<!-- uspbarra - fim -->  
+<!-- uspbarra - fim -->            
+     
+     
+   <div class="container">
+   
+    <!-- Header SIBiUSP -->   
+    	<div class="row">
+            <div class="col-md-8">
+                    <div class="logo">
+                            <h1><a href="index.php" title="<?php echo $_SESSION[CFGTitulo].': '.MENU_ListaSis;?> "><?php echo $_SESSION[CFGTitulo];?></a></h1>
+                    </div>
+            </div>
+            <div class="col-md-4">
+                    <address>
+                    <strong>Departamento Técnico do Sistema Integrado de Bibliotecas da USP</strong><br>
+                            Rua da Biblioteca, S/N - Complexo Brasiliana<br>
+                            05508-050 - Cidade Universitária, São Paulo, SP - Brasil<br>
+                            <abbr title="Phone">Tel:</abbr> (0xx11) 3091-4439<br>
+                            <strong>E-mail:</strong> <a href="mailto:#">atendimento@sibi.usp.br</a>
+                    </address>
+            </div>
+        </div>
+    <!-- Fim header -->
+  
+    <!-- Barra de navegação USP - Inicio -->
 
-<div class="container">
-	<div class="row">
-	<div class="col-md-8">
-		<div class="logo">
-			<h1><a href="index.php" title="<?php echo $_SESSION[CFGTitulo].': '.MENU_ListaSis;?> "><?php echo $_SESSION[CFGTitulo];?></a></h1>
-		</div>
-	</div>
-	<div class="col-md-4">
-		<address>
-		<strong>Departamento Técnico do Sistema Integrado de Bibliotecas da USP</strong><br>
-			Rua da Biblioteca, S/N - Complexo Brasiliana<br>
-			05508-050 - Cidade Universitária, São Paulo, SP - Brasil<br>
-			<abbr title="Phone">Tel:</abbr> (0xx11) 3091-4439<br>
-			<strong>E-mail:</strong> <a href="mailto:#">atendimento@sibi.usp.br</a>
-		</address>
-	</div>
-</div>
-	
-	<div id="arriba"></div>
 			<header class="navbar navbar-inverse" role="navigation">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -227,7 +198,7 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
 					 <li>
                                             <!-- Button trigger modal -->
                                             <a type="button" data-toggle="modal" data-target="#login"><?php echo MENU_MiCuenta;?></a>
-                                            <!-- Modal -->
+					    <!-- Modal -->
                                             <div class="modal" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                               <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -284,9 +255,9 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
                                                     <li class="dropdown">
                                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Idioma <span class="caret"></span></a>
                                                         <ul class="dropdown-menu" role="menu">
-                                                          <li><a href="?setLang=pt">Português</a></li>
-                                                          <li><a href="?setLang=en">English</a></li>
-                                                          <li><a href="?setLang=es">Español</a></li>
+                                                          <li><a href="/pt-br">Português</a></li>
+                                                          <li><a href="/en">English</a></li>
+                                                          <!-- <li><a href="?setLang=es">Español</a></li> -->
                                                         </ul>
                                                     </li>
                                                     <li class="dropdown">
@@ -294,8 +265,10 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
                                                         <ul class="dropdown-menu" role="menu">
                                                             <li><a href="equipe.php">Equipe de implementação</a></li>
                                                             <li><a href="equipe_atual.php">Grupos de gestão atuais</a></li>
+							    <li><a title="<?php echo MENU_Catalogacao;?>" href="catalogacao.php"><?php echo MENU_Catalogacao;?></a></li> 
                                                         </ul>
-                                                    </li>                                                     
+                                                    </li>
+						                                                     
                                                     <li><a title="<?php echo MENU_Sobre;?>" href="sobre.php"><?php echo MENU_Sobre;?></a></li>                                                 
 						</ul>
 						<!-- Search Box -->
@@ -307,11 +280,13 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
 							</form>
 					</nav>
 			</header>
-			
-			
-<!-- body, or middle section of our header -->   
 
-<!-- ###### Body Text ###### -->
+<!-- Barra de navegação USP - Fim -->
+
+    
+    
+    
+<!-- Histórico USP - Início -->
 
 <div class="row">
 <div class="col-md-12">
@@ -579,57 +554,33 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
  </div>   
 </div>
 </div>
-    
-    
-    
-    
-    <?php   
-    $resumen=ARRAYresumen($_SESSION[id_tesa],"G","");
-    $fecha_crea=do_fecha($_SESSION[CFGCreacion]);
+
+
+<!-- Histórico USP - Fim -->
+
+    <?php
+    $resumen=ARRAYresumen($_SESSION["id_tesa"],"G","");
+    $fecha_crea=do_fecha($_SESSION["CFGCreacion"]);
     $fecha_mod=do_fecha($_SESSION["CFGlastMod"]);
     $ARRAYmailContact=ARRAYfetchValue('CONTACT_MAIL');
     ?>
-<div id="Estatísticas">
-     <h1>Dados e Estatísticas do Vocabulário</h1>
-     
-     <table class="table table-bordered">
-         <tbody>
-             <tr>
-                 <th><?php echo ucfirst(LABEL_URI);?></th>
-                 <th><?php echo $_SESSION[CFGURL];?></th>   
-             </tr>
-             <tr>
-                 <th><?php echo ucfirst(LABEL_Idioma);?></th>
-                 <th><?php echo $_SESSION[CFGIdioma];?></th>
-             </tr>
-             <tr>
-                 <th><?php echo ucfirst(FORM_LABEL__contactMail);?></th>
-                 <th><?php echo $ARRAYmailContact["value"];?></th>
-             </tr>
-             <tr>
-                 <th><?php echo ucfirst(LABEL_Fecha);?></th>
-                 <th><?php echo $fecha_crea[dia].'/'.$fecha_crea[mes].'/'.$fecha_crea[ano];?></th>
-             </tr>
-             <tr>
-                 <th><?php echo ucfirst(LABEL_lastChangeDate);?></th>
-                 <th><?php echo $fecha_mod[dia].'/'.$fecha_mod[mes].'/'.$fecha_mod[ano];;?></th>
-             </tr>
-             <tr>
-                 <th><?php echo ucfirst(LABEL_Keywords);?></th>
-                 <th><?php echo $_SESSION[CFGKeywords];?></th>
-             </tr>
-             <tr>
-                 <th><?php echo ucfirst(LABEL_TipoLenguaje);?></th>
-                 <th><?php echo $_SESSION[CFGTipo];?></th>
-             </tr>       
-             <tr>
-                 <th><?php echo ucfirst(LABEL_Cobertura);?></th>
-                 <th><?php echo $_SESSION[CFGCobertura];?></th>
-             </tr> 
-             <tr>
-                 <th><?php echo ucfirst(LABEL_Terminos);?></th>
-                 <th><?php echo $resumen[cant_total];?></th>
-             </tr> 
+<div class="container" id="bodyText">
+
+     <h1><?php echo $_SESSION[CFGTitulo];?> / <?php echo $_SESSION[CFGAutor];?></h1>
+        <dl class="dl-horizontal" id="sumario">
+        <dt><?php echo ucfirst(LABEL_URI);?></dt><dd><?php echo $_SESSION[CFGURL];?> </dd>
+        <dt><?php echo ucfirst(LABEL_Idioma);?></dt><dd><?php echo $_SESSION[CFGIdioma];?></dd>
+        <dt><?php echo ucfirst(FORM_LABEL__contactMail);?></dt><dd><?php echo $ARRAYmailContact["value"];?></dd>
+        <dt><?php echo ucfirst(LABEL_Fecha);?></dt><dd><?php echo $fecha_crea[dia].'/'.$fecha_crea[mes].'/'.$fecha_crea[ano];?></dd>
+		<dt><?php echo ucfirst(LABEL_lastChangeDate);?></dt><dd><?php echo $fecha_mod[dia].'/'.$fecha_mod[mes].'/'.$fecha_mod[ano];;?>
+        <dt><?php echo ucfirst(LABEL_Keywords);?></dt><dd><?php echo $_SESSION[CFGKeywords];?></dd>
+        <dt><?php echo ucfirst(LABEL_TipoLenguaje);?></dt><dd><?php echo $_SESSION[CFGTipo];?></dd>
+        <dt><?php echo ucfirst(LABEL_Cobertura);?></dt><dd><?php echo $_SESSION[CFGCobertura];?></dd>
+        <dt><?php echo ucfirst(LABEL_Terminos);?></dt><dd><?php echo $resumen[cant_total];?>
+
+        <?php  echo '  <a class="label label-info" href="'.$_SESSION["CFGURL"].'index.php?s=n" title="'.ucfirst(LABEL_showNewsTerm).'"><span class="glyphicon glyphicon-fire"></span> '.ucfirst(LABEL_showNewsTerm).'</a>'; ?>
+
+        <ul>
 	<?php
 
 	if($_SESSION[$_SESSION["CFGURL"]]["CFG_VIEW_STATUS"]==1)
@@ -641,59 +592,53 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
 		if($resumen[cant_rechazado]>0){
 			echo '<li><a href="index.php?estado_id=14">'.ucfirst(LABEL_Rechazado).': '.$resumen[cant_rechazado].'</a></li>';
 			}
-	}	
+	}
 	?>
-             <tr>
-                 <th><?php echo ucfirst(LABEL_RelTerminos);?></th>
-                 <th><?php echo $resumen[cant_rel];?></th>
-             </tr>    
-             <tr>
-                 <th><?php echo ucfirst(LABEL_TerminosUP);?></th>
-                 <th><?php echo $resumen[cant_up];?></th>
-             </tr>                
+	</ul></dd>
+  <?php
+  //show tree
+  if(($_SESSION[$_SESSION["CFGURL"]]["ssuser_id"]) && ($_SESSION[$_SESSION["CFGURL"]]["_SHOW_TREE"]==1)){
 
-     
-     
-
-		
+    echo '<dt>'.ucfirst(LABEL_termsXdeepLevel).'</dt><dd>'.HTMLdeepStats().'</dd>';
+  }
+  ?>
+        <dt><?php echo ucfirst(LABEL_RelTerminos);?></dt><dd><?php echo $resumen[cant_rel];?></dd>
+        <dt><?php echo ucfirst(LABEL_TerminosUP);?></dt><dd><?php echo $resumen[cant_up];?></dd>
 		<?php
 		//Evaluar si hay notas
-		if (is_array($resumen["cant_notas"])) 
+		if (is_array($resumen["cant_notas"]))
 		{
-			
+
 			  $sqlNoteType=SQLcantNotas();
 			  $arrayNoteType=array();
-			  
+
 			  while ($array=$sqlNoteType->FetchRow()){
 			  		 if($array[cant]>0)
 			  		 {
-			  		 	 echo '<tr><th>';
+			  		 	 echo '<dt>';
 				  		 echo  (in_array($array["value_id"],array(8,9,10,11,15))) ? arrayReplace(array(8,9,10,11,15),array(LABEL_NA,LABEL_NH,LABEL_NB,LABEL_NP,LABEL_NC),$array["value_id"]) : $array["value"];
-				    	 echo '</th><th> '.$array[cant].'</th></tr>';    	 
-			  		 }	 
-			  };			
+				    	 echo '</dt><dd> '.$array[cant].'</dd>';
+			  		 }
+			  };
 		}
 
 		//are enable SPARQL
 		if(CFG_ENABLE_SPARQL==1)
 		{
-			echo '<tr><th>'.LABEL_SPARQLEndpoint.'</th> <th><a href="'.$_SESSION["CFGURL"].'sparql.php" title="'.LABEL_SPARQLEndpoint.'">'.$_SESSION["CFGURL"].'sparql.php</a></th></tr>';
-		}			
+			echo '<dt>'.LABEL_SPARQLEndpoint.'</dt> <dd><a href="'.$_SESSION["CFGURL"].'sparql.php" title="'.LABEL_SPARQLEndpoint.'">'.$_SESSION["CFGURL"].'sparql.php</a></dd>';
+		}
 		//are enable SPARQL
 		if(CFG_SIMPLE_WEB_SERVICE ==1)
 		{
-			echo '<tr><th>API </th> <th><a href="'.$_SESSION["CFGURL"].'services.php" title="API">'.$_SESSION["CFGURL"].'services.php</a></th></tr>';
-		}			
-		?>	
-
-         </tbody>
-
-</table>             
-             
+			echo '<dt>API </dt> <dd><a href="'.$_SESSION["CFGURL"].'services.php" title="API">'.$_SESSION["CFGURL"].'services.php</a></dd>';
+		}
+		?>
+    <dt><?php echo LABEL_Version ?></dd><dd><a href="http://www.vocabularyserver.com/" title="TemaTres: vocabulary server"><?php echo $CFG["Version"];?></a></dd>
+	</dl>
 	<?php
 
 
-	if($_SESSION[$_SESSION["CFGURL"]][ssuser_id]){
+	if($_SESSION[$_SESSION["CFGURL"]]["ssuser_id"]){
 		//es admin y quiere ver un usuario
   		if(($_GET[user_id])	&&	($_SESSION[$_SESSION["CFGURL"]][ssuser_nivel]==1))
   		{
@@ -716,38 +661,52 @@ $search_string = (doValue($_GET,FORM_LABEL_buscar)) ? XSSprevent(doValue($_GET,F
 		}
 	};
 	?>
-    <!-- ###### Footer ###### -->
-    </div>
+</div><!-- /.container -->
 <!-- ###### Footer ###### -->
 
-    <div class="footer">
-        <div class="well well-lg">
-            <p>Desenvolvido com Tematres 1.81</p>                
-            <p><?php echo LABEL_URI ?>: <span class="footerCol2"><a href="<?php echo $_SESSION["CFGURL"];?>"><?php echo $_SESSION["CFGURL"];?></a></span></p>
-				<?php
-				//are enable SPARQL
-				if(CFG_ENABLE_SPARQL==1)
-				{
-					echo '<p><strong><a href="'.$_SESSION["CFGURL"].'sparql.php" title="'.LABEL_SPARQLEndpoint.'">'.LABEL_SPARQLEndpoint.'</a></strong></p>';
-				}
-                                
-				if(CFG_SIMPLE_WEB_SERVICE==1)
-				{
-					echo '<p><a href="'.$_SESSION["CFGURL"].'services.php" title="API">API do WebService</a></p>';	
-				}
-				?>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<div id="footer" class="footer">
+      <div class="container">
+        <div class="row">
+          <a href="http://www.vocabularyserver.com/" title="TemaTres: vocabulary server">
+            <img src="<?php echo T3_WEBPATH;?>/images/tematres-logo.gif"  width="42" alt="TemaTres"/></a>
+            <a href="http://www.vocabularyserver.com/" title="TemaTres: vocabulary server">TemaTres</a>
+    <p class="navbar-text pull-left">
+  				<?php
+  				if(CFG_ENABLE_SPARQL==1)
+  				{
+  					echo '<a class="label label-info" href="'.$_SESSION["CFGURL"].'sparql.php" title="'.LABEL_SPARQLEndpoint.'">'.LABEL_SPARQLEndpoint.'</a>';
+  				}
+  				if(CFG_SIMPLE_WEB_SERVICE==1)
+  				{
+  					echo '  <a class="label label-info" href="'.$_SESSION["CFGURL"].'services.php" title="API"><span class="glyphicon glyphicon-share"></span> API</a>';
+  				}
+  					echo '  <a class="label label-info" href="'.$_SESSION["CFGURL"].'xml.php?rss=true" title="RSS"><span class="icon icon-rss"></span> RSS</a>';
+          ?>
+  			</p>
+    	</div>
+	</div>
 
-  ga('create', 'UA-59814582-1', 'auto');
-  ga('send', 'pageview');
+		  </div>
 
-</script>			
-    
-  </div>
-        </div>
- </body>
+  	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="<?php echo T3_WEBPATH;?>bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="<?php echo T3_WEBPATH;?>jq/jquery.autocomplete.js"></script>
+  <script type="text/javascript" src="<?php echo T3_WEBPATH;?>jq/jquery.mockjax.js"></script>
+  <script type="text/javascript" src="<?php echo T3_WEBPATH;?>jq/tree.jquery.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="<?php echo T3_WEBPATH;?>css/jquery.autocomplete.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo T3_WEBPATH;?>css/jqtree.css" />
+ <script type="text/javascript" src="<?php echo T3_WEBPATH;?>bootstrap/submenu/js/bootstrap-submenu.min.js"></script>
+ <script type="text/javascript" src="<?php echo T3_WEBPATH;?>bootstrap/bootstrap-tabcollapse.js"></script>
+
+<script type="application/javascript" src="js.php" charset="utf-8"></script>
+ <script type='text/javascript'>
+
+  $("#myTermTab").tabCollapse();
+  $('.dropdown-submenu > a').submenupicker();
+
+        </script>
+    </body>
 </html>

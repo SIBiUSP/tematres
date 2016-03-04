@@ -2,7 +2,7 @@
 #   TemaTres : aplicación para la gestión de lenguajes documentales #       #
 #                                                                        #
 #   Distribuido bajo Licencia GNU Public License, versión 2 (de junio de 1.991) Free Software Foundation
-#   Maribel Cuadrado 
+#   Maribel Cuadrado
 
 # 2014-03-06 jsau arreglant i completant catala
 ###############################################################################################################
@@ -389,7 +389,7 @@ define('install_message[203]','Не удалось установить связ
 define('install_message[204]','Связь с сервером <em>%s</em> установлена ');
 define('install_message[205]','Не удалось установить связь с базой данных <em>%s</em> на сервере <em>%s</em>. Проверьте конфигурацию файла для связи с базой данных (%s). ');
 define('install_message[206]','Связь с базой данных <em>%s</em> на сервере <em>%s</em> установлена. ');
-define('install_message[301]','Увы... Пример конфигурации Tematres уже существует. Проверьте конфигурацию файла для связи с базой данных (%s). ');
+define('install_message[301]','Увы... Пример конфигурации Tematres уже существует. Проверьте конфигурацию файла для связи с базой данных (%s). <a href="index.php">Enjoy your Vocabulary Server</a>');
 define('install_message[305]',' Проверка пароля безопасности. ');
 define('install_message[306]','Настройка выполнена, <a href="index.php">Можете пользоваться сервером словаря</a>' );
 
@@ -405,7 +405,7 @@ $idiomas_disponibles = array(
      "gl"  => array("galego","", "gl"),
      "it"  => array("italiano","", "it"),
      "nl"  => array("nederlands","", "nl"),
-     "pl"  => array("polski","", "pl"),    
+     "pl"  => array("polski","", "pl"),
      "pt"  => array("portugués","", "pt"),
      "ru"  => array("Pусский","", "ru")
     );
@@ -451,4 +451,36 @@ define('FORM_LABEL__contactMail','contact mail');
 define('LABEL_addMapLink','add mapping between vocabularies');
 define('LABEL_addExactLink','add reference link');
 define('LABEL_addSourceNote','add source note');
+## v1.82
+define('LABEL_FORM_mappedTermReport','Relationships between vocabularies');
+define('LABEL_eliminar','Delete');
+##v.2
+define('MSG_termsNoDeleted','the terms was deleted');
+define('MSG_termsDeleted','deleted terms');
+define('LABEL_selectAll','select all');
+define('LABEL_metadatos','metadata');
+define('LABEL_totalTermsDescendants','descendant terms');
+define('LABEL_altTerms','alternative terms');
+define('LABEL_narrowerTerms','more specific terms');
+define('LABEL_results','results');
+define('LABEL_showFreeTerms','free terms list');
+define('LABEL_helpSearchFreeTerms','Only free terms.');
+define('LABEL_broatherTerms','broader Terms');
+define('LABEL_type2filter','type to filter the terms');
+define('LABEL_defaultEQmap','Type "eq" to define equivalence relationship');
+define("MSG_repass_error","the passwords are not matched");
+define("MSG_lengh_error","please type at least %d caracteres");
+define("MSG_errorPostData","A mistake was detected, Please review the data to the field");
+define('LABEL_preferedTerms','preferred terms');
+define('LABEL_FORM_NULLnotesTermReport','terms WITHOUT notes');
+define('MSG_FORM_NULLnotesTermReport','terms without note type');
+define('LABELnoNotes','terms that have no note');
+define('LABEL_termsXdeepLevel','terms for each depth level');
+define('LABEL_deepLevel','deep level');
+define('LABEL_cantTerms','# of terms');
+define('LINK_publicKnownVocabularies','<a href="http://www.vocabularyserver.com/vocabularies/" title="List of enabled vocabularies" target="_blank">List of enabled vocabularies</a>');
+define('LABEL_showNewsTerm','show recent changes');
+define('LABEL_newsTerm','recent changes');
+define('MSG_contactAdmin','contact to the administrator');
+define('LABEL_addTargetVocabulary','add external vocabularies (terminological web services)');
 ?>

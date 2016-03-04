@@ -8,7 +8,7 @@ if ((stristr( $_SERVER['REQUEST_URI'], "session.php") ) || ( !defined('T3_ABSPAT
 ###############################################################################################################
 # ARCHIVO DE CONFIGURACION == CONFIG FILE #
 
-$CFG["Version"]        = "TemaTres 1.81";
+$CFG["Version"]        = "TemaTres 2.0";
 
 $CFG["VersionWebService"]        = "1.5";
 
@@ -163,7 +163,7 @@ $CFG["SEARCH_URL_SITES_SINTAX"] = Array(
 	'wikipedia' => Array(
 		'favicon' => 'wikipedia_mini.png',
 		'leyenda' => 'Wikipedia',
-		'url' => 'http://pt.wikipedia.org/wiki/Especial:Search?search=STRING_BUSQUEDA&amp;fulltext=Buscar+en+texto',
+		'url' => 'http://es.wikipedia.org/wiki/Especial:Search?search=STRING_BUSQUEDA&amp;fulltext=Buscar+en+texto',
 		'encode'=>FALSE
 	),
 

@@ -4,7 +4,7 @@ if ((stristr( $_SERVER['REQUEST_URI'], "session.php") ) || ( !defined('T3_ABSPAT
 #                                                                        #
 #   Copyright (C) 2004-2008 Diego Ferreyra tematres@r020.com.ar
 #   Distribuido bajo Licencia GNU Public License, versión 2 (de junio de 1.991) Free Software Foundation
-#  
+#
 ###############################################################################################################
 
 
@@ -13,7 +13,7 @@ if ((stristr( $_SERVER['REQUEST_URI'], "session.php") ) || ( !defined('T3_ABSPAT
 ###################################################################################
 ###################################################################################
 
-		
+
 // Funcion tomada de PHPBB: http://www.phpbb.com/
 // addslashes to vars if magic_quotes_gpc is off
 // this is a security precaution to prevent someone
@@ -21,7 +21,7 @@ if ((stristr( $_SERVER['REQUEST_URI'], "session.php") ) || ( !defined('T3_ABSPAT
 //
 
 function PHP_magic_quotes(){
-	
+
 if( !get_magic_quotes_gpc() )
 {
         if( is_array($_GET) )
@@ -174,7 +174,7 @@ function do_fecha($fecha){
    }
 
 
-   
+
 #
 # Arma un intervalo de n�meros o meses
 #
@@ -238,9 +238,9 @@ function SqlSelectForm($sql)
 		};
           $array=substr("$array",0,-1);
           $array=explode("&",$array);
-   
+
    return $array;
-}	  
+}
 
 #
 # alternador de colores en filas
@@ -286,12 +286,12 @@ function sendFile($input,$filename){
 
 //sql 2 CSV and send as attach
 //based on http://www.phpclasses.org/browse/file/16237.html
-function sql2csv($sql,$filename,$encode="utf8") 
+function sql2csv($sql,$filename,$encode="utf8")
 {
 $res = $sql;
 $colnames = array();
 
-// get column captions and enclose them in doublequotes (") 
+// get column captions and enclose them in doublequotes (")
 	for ($i = 0; $i < $res->FieldCount(); $i++) {
 		$fld = $res->FetchField($i);
 		$colnames[] = '"'.$fld->name.'"';
@@ -305,18 +305,18 @@ $colnames = array();
 // replace single double-quotes with double double-quotes
 // and add values to .csv file contents
 if (SQLcount($res)>0) {
-	$CSV.="\n";	
+	$CSV.="\n";
 	while ($array = $res->FetchRow()) {
-		
+
 		//for ($i = 0; $i < sizeof($row); $i++) {
 		for ($i = 0; $i < $res->FieldCount(); $i++) {
-			$array[$i] = '"'.str_replace('"', '""', $array[$i]).'"';			
+			$array[$i] = '"'.str_replace('"', '""', $array[$i]).'"';
 			$CSV.= $array[$i].";";
 			}
 /*
 		$CSV=substr($CSV,0,-1);
 */
-		$CSV.="\n";	
+		$CSV.="\n";
 		//$CSV .= "\n".implode(";", $array);
 	}
 }
@@ -336,7 +336,7 @@ print ($encode=='latin1') ? latin1($CSV) : utf8($CSV);
 
 //From TematresView by Nicolas Poulain
 function secure_data($data,$type="alnum") {
-	
+
 	switch ( $type ) {
 		case "alnum" :
 			// suppression des caracteres pas catholiques
@@ -345,38 +345,38 @@ function secure_data($data,$type="alnum") {
 		break ;
 
 		case "alpha" :
-			// suppression des caracteres pas catholiques			
+			// suppression des caracteres pas catholiques
  		    $data = preg_replace('/^\W+|\W+$/', '', $data);
 		    $data = arrayReplace ( array("0","1","2","3","4","5","6","7","8","9"), array(""),$data );
 			$data = preg_replace('/\s/', '', $data) ;
 		break ;
-		
+
 
 		case "ADOsql" :
 		GLOBAL $DB;
 		$data = trim($data);
 		$data=$DB->qstr($data,get_magic_quotes_gpc());
 		break ;
-		
-		
+
+
 		case "sql" :
 			$data = trim($data);
 			// vire les balises
 			$data = strip_tags($data) ;
-			
-			if (is_numeric($data)  || $data === null) 
+
+			if (is_numeric($data)  || $data === null)
 			{
                 return $data;
             }
 			// zappe le magic_quote d�pr�ci�
 			$data = str_replace("''", "'", $data) ;
-			
+
 			if(get_magic_quotes_gpc()) $data = stripslashes($data);
 
 			$data= addslashes($data);
 		break ;
 
-		case "sqlhtml" :		
+		case "sqlhtml" :
 			 //SQL secure with HTML tags
 			// zappe le magic_quote d�pr�ci�
 			if(get_magic_quotes_gpc()) {
@@ -389,13 +389,13 @@ function secure_data($data,$type="alnum") {
 
 		case "int" : // int
 			$data =(int)preg_replace('|[^0-9.]|i', '', $data);
-			
+
 			if ( $data == "" ) $data = 0 ;
 		break ;
 
 		default : // int
 			$data =(int)preg_replace('|[^0-9.]|i', '', $data);
-			
+
 			if ( $data == "" ) $data = 0 ;
 		break ;
 	}
@@ -405,7 +405,7 @@ function secure_data($data,$type="alnum") {
 
 
 
-function is_alpha($inStr) { return (preg_match("/^[a-zA-Z]+$/",$inStr) != 0); } 
+function is_alpha($inStr) { return (preg_match("/^[a-zA-Z]+$/",$inStr) != 0); }
 
 
 function is_alpha_numeric($inStr) { return (preg_match("/^[a-zA-Z0-9]+$/",$inStr) != 0); }
@@ -434,11 +434,11 @@ function arrayReplace ( $arrayInicio, $arrayFinal, $string )
 
 
 //
-function prepare2sqlregexp($string) 
+function prepare2sqlregexp($string)
 {
 	$arrayPossibleSpecialChar=array('a','e','i','o','u','c','y','n');
 	$arraySpecialChar=array('[a������]','[c�]','[o������]','[e����]','[i����]','[u����]','[y��]','[n�]');
-	
+
 	return str_replace($arrayPossibleSpecialChar, $arraySpecialChar, $string);
 }
 
@@ -517,7 +517,7 @@ function wiki2html($wikitext)
 
 
 /*
-* Apartir de uma lista de palavras e uma palavra, 
+* Apartir de uma lista de palavras e uma palavra,
 * sugere uma palavra da lista que mais se parece com a palavra informada.
 // Fuente: Qiphp:Framework PHP Brasileiro voltado para sistemas legados. http://qiphp.googlecode.com/svn/
 */
@@ -525,7 +525,7 @@ class Qi_Util_Similar
 {
 	private $lista = array();
 	private $palavra = "";
-	
+
 
 
 	const SIMILAR = "similar";
@@ -534,7 +534,7 @@ class Qi_Util_Similar
 	public function __construct(array $lista, $palavra, $metodo = self::LEVENSHTEIN)
 	{
 		$this->lista = array_map("strtolower", $lista);
-		
+
 		$this->palavra = strtolower($palavra);
 		usort($this->lista, array($this, $metodo));
 	}
@@ -689,10 +689,9 @@ function utf8($txt) {
 }
 
 
-function XSSprevent($string)
-{
+function XSSprevent($string){
 
-    require_once 'htmlpurifier/HTMLPurifier.auto.php';
+  require_once 'htmlpurifier/HTMLPurifier.auto.php';
 
 	$config = HTMLPurifier_Config::createDefault();
 	$purifier = new HTMLPurifier($config);
@@ -779,15 +778,15 @@ function DBconnect(){
 
 
 	// Si se establecio un charset para la conexion
-	if(@$DBCFG["DBcharset"]){	
-		$DB->Execute("set names $DBCFG[DBcharset]"); 
+	if(@$DBCFG["DBcharset"]){
+		$DB->Execute("set names $DBCFG[DBcharset]");
 		}
 
 	//Si debug
 	if($DBCFG["debugMode"]=='1'){
 		echo $DB->ErrorMsg();
 		};
-		
+
 return $DB;
 }
 
@@ -807,11 +806,11 @@ if (!$rs) return array("error"=>$DB->ErrorMsg());
 		case 'insert':
 		return array("cant"=>$DB->Insert_ID());
 		break;
-		
+
 		case 'update':
 		return array("cant"=>$DB->Affected_Rows());
 		break;
-		
+
 		default:
 		return $rs;
 		}
@@ -835,11 +834,11 @@ if (!$rs) return array("error"=>$DB->ErrorMsg());
 		case 'insert':
 		return array("cant"=>$DB->Insert_ID());
 		break;
-		
+
 		case 'update':
 		return array("cant"=>$DB->Affected_Rows());
 		break;
-		
+
 		default:
 		return $rs;
 		}
@@ -868,7 +867,7 @@ return SQLo("select","id,
 };
 
 
-function SQLAuthUser($mail,$pass) 
+function SQLAuthUser($mail,$pass)
 {
 GLOBAL $DBCFG;
 
@@ -883,7 +882,7 @@ return SQLo("select","usuario.id,
 };
 
 
-function ARRAYcheckLogin($mail) 
+function ARRAYcheckLogin($mail)
 {
 GLOBAL $DBCFG;
 
@@ -894,15 +893,15 @@ $sql=SQLo("select","u.id,
 			concat(u.apellido,', ',u.nombres) as nombre,
 			u.pass
 		from $DBCFG[DBprefix]usuario as u
-			 where u.mail=?			 
+			 where u.mail=?
 			 and u.estado=1",array($mail));
 
-return (is_object($sql)) ? $sql->FetchRow() : array("result"=>false); 
+return (is_object($sql)) ? $sql->FetchRow() : array("result"=>false);
 }
 
 
 
-//fix ADOdb5 problem tu response 0 result
+//fix ADOdb5 problem to response 0 result
 function SQLcount($object)
 {
 	return (is_object($object)) ? $object->RecordCount() : '0';
@@ -911,15 +910,15 @@ function SQLcount($object)
 
 function loadConfigValues($renew="0")
 {
-	
+
 	GLOBAL $arrayCFGs;
-	
+
 	//renovar valores
 	if($renew=='1')
 	{
 		GLOBAL $DBCFG;
 
-		$sql=SQL("select","v.value_id,v.value_type,v.value,v.value_code,v.value_order 
+		$sql=SQL("select","v.value_id,v.value_type,v.value,v.value_code,v.value_order
 						from $DBCFG[DBprefix]values v
 						where v.value_type='config'");
 	    if(SQLcount($sql)>0)
@@ -931,39 +930,39 @@ function loadConfigValues($renew="0")
 						case 'CFG_MAX_TREE_DEEP':
 						$array[value_code] = (in_array($array[value_code],array(1,2,3,4,5,6))) ? $array[value_code] : $arrayCFGs[$array[value]];
 						break;
-		
-						case 'CFG_MIN_SEARCH_SIZE':		
+
+						case 'CFG_MIN_SEARCH_SIZE':
 						$array[value_code] = (in_array($array[value_code],array(1,2,3,4,5,6))) ? $array[value_code] : $arrayCFGs[$array[value]];
 						break;
-						
-						case 'CFG_NUM_SHOW_TERMSxSTATUS':		
-						$array[value_code] = (in_array($array[value_code],array(50,100,150,200,250))) ? $array[value_code] : $arrayCFGs[$array[value]];	
+
+						case 'CFG_NUM_SHOW_TERMSxSTATUS':
+						$array[value_code] = (in_array($array[value_code],array(50,100,150,200,250))) ? $array[value_code] : $arrayCFGs[$array[value]];
 						break;
-						
+
 						default:
-						$array[value_code] = (in_array($array[value_code],array(1,0))) ? $array[value_code] : $arrayCFGs[$array[value]];					
+						$array[value_code] = (in_array($array[value_code],array(1,0))) ? $array[value_code] : $arrayCFGs[$array[value]];
 					}
-					
+
 			$NEWarrayCFGs[$array["value"]]= $array["value_code"];
 			}
 	    }
-	    
+
 	  }
 
 	//define default values
 	foreach ($arrayCFGs as $key => $value) {
-			$value = (isset($NEWarrayCFGs["$key"])) ? $NEWarrayCFGs["$key"] : $value ;	
+			$value = (isset($NEWarrayCFGs["$key"])) ? $NEWarrayCFGs["$key"] : $value ;
     		$_SESSION[$_SESSION["CFGURL"]]["$key"]=$value;
 	}
-	  
+
 }
 
 
-function LABELrelTypeSYS($r_id) 
-{	
+function LABELrelTypeSYS($r_id)
+{
 	//system defaults relations
 	//its wrong storage data in functions.... but this data are fixed data
-	//if(in_array($value_id,array(2,3,4,5,6,7))) 
+	//if(in_array($value_id,array(2,3,4,5,6,7)))
 
 	$arrayLabel[2]=array("r_code"=>TR_acronimo,"r_value"=>TR_termino,"rx_code"=>TR_acronimo,"rx_value"=>TR_termino);
 	$arrayLabel[3]=array("r_code"=>TG_acronimo,"r_value"=>TG_termino,"rx_code"=>TE_acronimo,"rx_value"=>TE_termino);
@@ -971,7 +970,7 @@ function LABELrelTypeSYS($r_id)
 	$arrayLabel[5]=array("r_code"=>EQ_acronimo,"r_value"=>LABEL_termino_equivalente);
 	$arrayLabel[6]=array("r_code"=>EQP_acronimo,"r_value"=>LABEL_termino_parcial_equivalente);
 	$arrayLabel[7]=array("r_code"=>NEQ_acronimo,"r_value"=>LABEL_termino_no_equivalente);
-	
+
 	return $arrayLabel[$r_id];
 }
 
@@ -984,7 +983,7 @@ function doLastModified($thes_change=false)
 	$lastTermMod=max($lastTerm["last_create"],$lastTerm["last_mod"],$lastTerm["last_status"]);
 	$lastTtermMod=ARRAYlastTtermMod();
 	$lastNoteMod=ARRAYlastNoteMod();
-	
+
 	$sqlTerm=SQL("update"," $DBCFG[DBprefix]values set value='$lastTermMod' where value_type='DATESTAMP' and value_code='TERM_CHANGE'");
 	$sqlTterm=SQL("update"," $DBCFG[DBprefix]values set value='$lastTtermMod' where value_type='DATESTAMP' and value_code='TTERM_CHANGE'");
 	$sqlNotes=SQL("update"," $DBCFG[DBprefix]values set value='$lastNoteMod' where value_type='DATESTAMP' and value_code='NOTE_CHANGE'");
@@ -997,29 +996,29 @@ function doLastModified($thes_change=false)
 }
 
 //last term modified
-function ARRAYlastTermMod() 
+function ARRAYlastTermMod()
 {
 	GLOBAL $DBCFG;
 	$sql=SQL("select","max(t.cuando) as last_create,max(t.cuando_final) as  last_mod,max(t.cuando_estado) as last_status from $DBCFG[DBprefix]tema t");
-	$array=$sql->FetchRow();	
+	$array=$sql->FetchRow();
 	return $array;
 }
 
 //last foreign term modified
-function ARRAYlastTtermMod() 
+function ARRAYlastTtermMod()
 {
 	GLOBAL $DBCFG;
 	$sql=SQL("select","max(tt.cuando) last from $DBCFG[DBprefix]term2tterm tt");
-	$array=$sql->FetchRow();	
+	$array=$sql->FetchRow();
 	return $array[last];
 }
 
 //last note modified
-function ARRAYlastNoteMod() 
+function ARRAYlastNoteMod()
 {
 	GLOBAL $DBCFG;
 	$sql=SQL("select","max(n.cuando) last from $DBCFG[DBprefix]notas n");
-	$array=$sql->FetchRow();	
+	$array=$sql->FetchRow();
 	return $array[last];
 }
 
@@ -1125,10 +1124,10 @@ function sendMail($to_address,$subject,$message,$extra=array())
 	require_once("mailer/class.phpmailer.php");
 
 	$mail = new PHPMailer();
-	
+
 /*
  * Exmple with SMTP from gmail
- * 
+ *
 	$mail->IsSMTP();                                      // set mailer to use SMTP
 	$mail->Host = 'ssl://smtp.gmail.com';
 	$mail->Port = 465;
@@ -1144,41 +1143,44 @@ function sendMail($to_address,$subject,$message,$extra=array())
 	$mail->IsHTML(false);                                  // set email format to HTML
 	$mail->Subject = $subject;
 	$mail->Body    = $message;
-	$mail->SMTPDebug  = 2; 	
+
 /*
  * Debug
- * 	
+ *
+ $mail->SMTPDebug  = 2;                     // enables SMTP debug information (for testing)
+ // 1 = errors and messages
+ // 2 = messages only
 
-	error_reporting(E_ALL); 
+	error_reporting(E_ALL);
 	ini_set("display_errors", 1);
 	echo $mail->ErrorInfo;
-*/	
+*/
  return ($mail->Send()) ? true  : false;
-	
+
 }
 
 
-function t3_messages($msg_type) 
+function t3_messages($msg_type)
 {
 	switch ($msg_type) {
 		case 'no_user':
-		$msg='<p class="error">'.MSG_noUser.'</p>';
+		$msg='<p class="alert alert-danger" role="alert">'.MSG_noUser.'</p>';
 		break;
 
 		case 'recovery_mail_send':
-		$msg='<p class="information">'.MSG_check_mail.'</p>';
+		$msg='<p  class="alert alert-info" role="alert">'.MSG_check_mail.'</p>';
 		break;
 
 		case 'mailOK':
-		$msg='<p class="information">'.MSG_check_mail.'</p>';
+		$msg='<p  class="alert alert-info" role="alert">'.MSG_check_mail.'</p>';
 		break;
 
 		case 'mailFail':
-		$msg='<p class="error">'.MSG_no_mail.'</p>';
+		$msg='<p  class="alert alert-danger" role="alert">'.MSG_no_mail.'</p>';
 		break;
-	
+
 		default :
-	
+
 		break;
 	}
 
@@ -1217,44 +1219,44 @@ function t3_hash_password($password) {
  * @param string $hash Hash of the user's password to check against.
  * @return bool False, if the $password does not match the hashed password
  */
-require_once( 'class-phpass.php');	
+require_once( 'class-phpass.php');
 
 function check_password($password,$hash)
 {
-	
+
 	if(CFG_HASH_PASS==1)
-	{	
+	{
 		$hasher = new PasswordHash(8, true);
-		return $hasher->CheckPassword($password,$hash);	
+		return $hasher->CheckPassword($password,$hash);
 	}
-	else 
+	else
 	{
 		return ($password==$hash);
-	};	
+	};
 
 }
 /*
- * 
+ *
  * Update password for user
  */
-function setPassword($user_id,$user_pass,$to_hash=0) 
+function setPassword($user_id,$user_pass,$to_hash=0)
 {
 	GLOBAL $DBCFG;
- 
+
 	$user_pass=($to_hash==1) ? t3_hash_password($user_pass) : $user_pass;
-		
-	$sql_update_pass=SQLo("update","$DBCFG[DBprefix]usuario set pass= ? where id= ?",array($user_pass,$user_id));	
-		
+
+	$sql_update_pass=SQLo("update","$DBCFG[DBprefix]usuario set pass= ? where id= ?",array($user_pass,$user_id));
+
 	return;
 };
 
 /*
  *
- * Sanitice unidimensional arrays 
+ * Sanitice unidimensional arrays
  */
-function XSSpreventArray($array) 
+function XSSpreventArray($array)
 {
-	 
+
 	if( is_array($array) )
 	{
 		while( list($k, $v) = each($array) )
@@ -1263,20 +1265,20 @@ function XSSpreventArray($array)
 		}
 		@reset($array);
 	}
-	else 
+	else
 	{
 			$array=array();
 	};
 
 return $array;
 }
- 
- 
- 
+
+
+
 
 /*
 * Function from http://www.bin-co.com/php/scripts/array2json/
-* 
+*
 */
 function array2json(array $arr)
 {
@@ -1331,7 +1333,7 @@ function string2array4ID($string,$char=",")
 {
 	$array_temas_id=explode($char,$string);
 
-foreach ($array_temas_id as $tema_id) 
+foreach ($array_temas_id as $tema_id)
 {
 	$temas_id[]=secure_data($tema_id,"int");
 }
@@ -1342,7 +1344,7 @@ foreach ($array_temas_id as $tema_id)
 }
 
 /*
-Check if the string is an accepted letter 
+Check if the string is an accepted letter
  */
 function isValidLetter($string)
 {
@@ -1370,9 +1372,17 @@ function getURLbase()
 	$segments = explode('?', $uri, 2);
 	$url = $segments[0];
 
-	$url_base=substr($url,0,strripos($url,"/")+1);		
+	$url_base=substr($url,0,strripos($url,"/")+1);
 
 	return $url_base;
 }
 
+
+
+function loadPageTerm($tema_id){
+
+  $tema_id=secure_data($tema_id,"int");
+
+  return header("Location:index.php?tema=$tema_id");
+}
 ?>

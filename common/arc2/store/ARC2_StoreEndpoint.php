@@ -992,7 +992,7 @@ class ARC2_StoreEndpoint extends ARC2_Store {
   
   function getHTMLDocBody() {
 
-    //DATE of last update endpoint
+    //DAF DATE of last update endpoint
     $ARRAYlastUpdateEndpoint=fetchlastUpdateEndpoint();
 
     return '

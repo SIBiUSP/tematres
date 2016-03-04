@@ -1,9 +1,9 @@
 <?php
 #   TemaTres : applicazione per la gestione di linguaggi documentali #       #
-#   Author for this i18n: Andrea Garelli - revisione 2013: Paolo Plini 
+#   Author for this i18n: Andrea Garelli - revisione 2013: Paolo Plini
 #   Distribuido bajo Licencia GNU Public License, versión 2 (de junio de 1.991) Free Software Foundation
-#   
-#  
+#
+#
 ###############################################################################################################
 #
 
@@ -297,12 +297,12 @@ $idiomas_disponibles = array(
      "gl"  => array("galego","", "gl"),
      "it"  => array("italiano","", "it"),
      "nl"  => array("nederlands","", "nl"),
-     "pl"  => array("polski","", "pl"),    
+     "pl"  => array("polski","", "pl"),
      "pt"  => array("portugüés","", "pt"),
      "ru"  => array("Pусский","", "ru")
     );
-    
-        
+
+
 /* v 1.1 */
 define('MSG_ERROR_CODE',"codice non valido");
 define('LABEL_CODE',"codice");
@@ -328,7 +328,7 @@ define("IMPORT_do_it","&Egrave; possibile iniziare l'importazione") ;
 define("IMPORT_working","importazione in corso") ;
 define("IMPORT_finish","importazione completata") ;
 define("LABEL_reIndice","ricreare gli indici") ;
-define("LABEL_dbMantenimiento","manutenzione database");    
+define("LABEL_dbMantenimiento","manutenzione database");
 
 
 
@@ -501,4 +501,36 @@ define('FORM_LABEL__contactMail','contact mail');
 define('LABEL_addMapLink','add mapping between vocabularies');
 define('LABEL_addExactLink','add reference link');
 define('LABEL_addSourceNote','add source note');
+## v1.82
+define('LABEL_FORM_mappedTermReport','Relationships between vocabularies');
+define('LABEL_eliminar','Delete');
+##v.2
+define('MSG_termsNoDeleted','the terms was deleted');
+define('MSG_termsDeleted','deleted terms');
+define('LABEL_selectAll','select all');
+define('LABEL_metadatos','metadata');
+define('LABEL_totalTermsDescendants','descendant terms');
+define('LABEL_altTerms','alternative terms');
+define('LABEL_narrowerTerms','more specific terms');
+define('LABEL_results','results');
+define('LABEL_showFreeTerms','free terms list');
+define('LABEL_helpSearchFreeTerms','Only free terms.');
+define('LABEL_broatherTerms','broader Terms');
+define('LABEL_type2filter','type to filter the terms');
+define('LABEL_defaultEQmap','Type "eq" to define equivalence relationship');
+define("MSG_repass_error","the passwords are not matched");
+define("MSG_lengh_error","please type at least %d caracteres");
+define("MSG_errorPostData","A mistake was detected, Please review the data to the field");
+define('LABEL_preferedTerms','preferred terms');
+define('LABEL_FORM_NULLnotesTermReport','terms WITHOUT notes');
+define('MSG_FORM_NULLnotesTermReport','terms without note type');
+define('LABELnoNotes','terms that have no note');
+define('LABEL_termsXdeepLevel','terms for each depth level');
+define('LABEL_deepLevel','deep level');
+define('LABEL_cantTerms','# of terms');
+define('LINK_publicKnownVocabularies','<a href="http://www.vocabularyserver.com/vocabularies/" title="List of enabled vocabularies" target="_blank">List of enabled vocabularies</a>');
+define('LABEL_showNewsTerm','show recent changes');
+define('LABEL_newsTerm','recent changes');
+define('MSG_contactAdmin','contact to the administrator');
+define('LABEL_addTargetVocabulary','add external vocabularies (terminological web services)');
 ?>

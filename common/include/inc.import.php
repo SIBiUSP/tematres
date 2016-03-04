@@ -11,7 +11,7 @@ must be ADMIN
 */
 if($_SESSION[$_SESSION["CFGURL"]][ssuser_nivel]=='1'){
 	// get the variables
-	
+
 	if (($_POST['taskAdmin']=='importTab') && (file_exists($_FILES["file"]["tmp_name"])) )
 	{
 
@@ -43,18 +43,16 @@ if($_SESSION[$_SESSION["CFGURL"]][ssuser_nivel]=='1'){
 		if ($debug) echo "<textarea style=\"width:500px;height:500px;\">" ;
 
 		$fd=fopen($src_txt,"r");
-		
-		while ( ($content= fgets($fd)) !== false ) {	
+		$content = file($src_txt,FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ;
+		fclose($fd);
 
-		$time_now = time();
-		if ($time_start >= $time_now + 10) {
-			$time_start = $time_now;
-			header('X-pmaPing: Pong');
-		};
-			
-			
-			//sleep(1) ;
-			$terme = $content ;
+		$start = ( !empty($_GET['start']) ) ? $_GET['start'] : 0 ;
+		$stop = $start + 200 ; // pas de l'import
+		$last = ( !empty($_GET['dernier']) ) ? unserialize($_GET['dernier']) : array() ;
+		$end = min( count($content) , $stop ) ;
+		for ( $i = $start ; $i < $end ; $i++ ) {
+
+			$terme = $content[$i] ;
 			// traitement data
 			$level = substr_count($terme,"\t") ;
 			$terme = str_replace("\n","",$terme) ;
@@ -112,11 +110,33 @@ if($_SESSION[$_SESSION["CFGURL"]][ssuser_nivel]=='1'){
 
 		if ($debug) echo "</textarea>" ;
 
-		fclose($fd);
-		//recreate index
-		$sql=SQLreCreateTermIndex();		
-		echo '<p class="true">'.ucfirst(IMPORT_finish).'</p>' ;
+		$dernier = serialize($last) ;
 
+		//if ( $debug == false ) {
+		if ( $debug == false ) { ?>
+			<script language="javascript" type="text/javascript">
+			function suite() {
+				<?php
+				if ( $end == $stop ) {
+					echo "window.location.replace(\"admin.php?doAdmin=import&taskAdmin=importTab&dernier=$dernier&start=$end\");" ;
+				}
+				?>
+			}
+			setTimeout("suite()",1000) ;
+			</script>
+		<?php }
+
+		if ( $end == $stop ) {
+			// admin.php?doAdmin=import
+			$nb = count($content) ;
+			echo '<p><a href="admin.php?doAdmin=import&taskAdmin=importTab&dernier='.$dernier.'&start='.$end.'">'.ucfirst(IMPORT_working).' ('.LABEL_Termino.' '.$end.' / '.$nb.')</a></p>' ;
+		}
+		else {
+			// recreate index
+			$sql=SQLreCreateTermIndex();
+			echo '<p class="true">'.ucfirst(IMPORT_finish).'</p>' ;
+		}
+		//fclose($fd);
 	}
 
 	else {

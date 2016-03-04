@@ -282,11 +282,11 @@ $idiomas_disponibles = array(
      "gl"  => array("galego","", "gl"),
      "it"  => array("italiano","", "it"),
      "nl"  => array("nederlands","", "nl"),
-     "pl"  => array("polski","", "pl"),    
+     "pl"  => array("polski","", "pl"),
      "pt"  => array("portugüés","", "pt"),
      "ru"  => array("Pусский","", "ru")
     );
-    
+
 /* Install messages */
 
 define("FORM","Form") ;
@@ -301,17 +301,17 @@ define("PARAM_DBPass","Database Password") ;
 define("PARAM_DBprefix","Prefix tables") ;
 
 
-$install_message[101] = "TemaTres Setup" ;
+$install_message[101] = 'TemaTres Setup' ;
 
-$install_message[201] = "Can not found the file configuration for the database connection (%s)." ;
-$install_message[202] = "File configuration for the database connection found." ;
-$install_message[203] = "Unable to connect to database server <em>%s</em> with the user <em>%s</em>. Please check your file configuration for the database connection (%s)." ;
-$install_message[204] = "Connect to Server <em>%s</em> success" ;
-$install_message[205] = "Unable to connect to database <em>%s</em> in server <em>%s</em>. Please check your file configuration for the database connection (%s)." ;
-$install_message[206] = "Connect to database <em>%s</em> in server <em>%s</em> success." ;
+$install_message[201] = 'Can not found the file configuration for the database connection (%s).';
+$install_message[202] = 'File configuration for the database connection found.';
+$install_message[203] = 'Unable to connect to database server <em>%s</em> with the user <em>%s</em>. Please check your file configuration for the database connection (%s).';
+$install_message[204] = 'Connect to Server <em>%s</em> success ';
+$install_message[205] = 'Unable to connect to database <em>%s</em> in server <em>%s</em>. Please check your file configuration for the database connection (%s).';
+$install_message[206] = 'Connect to database <em>%s</em> in server <em>%s</em> success.' ;
 
-$install_message[301] = "Woppsss... There is already an Tematres instance for the configuration. Please check your file configuration for the database connection (%s)." ;
-$install_message[305] = " Checking Security password." ;
+$install_message[301] = 'Woppsss... There is already an Tematres instance for the configuration. Please check your file configuration for the database connection (%s) or <a href="index.php">Enjoy your Vocabulary Server</a>' ;
+$install_message[305] = ' Checking Security password.' ;
 $install_message[306] = 'Setup is completed, <a href="index.php">Enjoy your Vocabulary Server</a>' ;
 /* end Install messages */
 
@@ -513,4 +513,37 @@ define('FORM_LABEL__contactMail','contact mail');
 define('LABEL_addMapLink','add mapping between vocabularies');
 define('LABEL_addExactLink','add reference link');
 define('LABEL_addSourceNote','add source note');
+
+## v1.82
+define('LABEL_FORM_mappedTermReport','Relationships between vocabularies');
+define('LABEL_eliminar','Delete');
+##v.2
+define('MSG_termsNoDeleted','the terms was deleted');
+define('MSG_termsDeleted','deleted terms');
+define('LABEL_selectAll','select all');
+define('LABEL_metadatos','metadata');
+define('LABEL_totalTermsDescendants','descendant terms');
+define('LABEL_altTerms','alternative terms');
+define('LABEL_narrowerTerms','more specific terms');
+define('LABEL_results','results');
+define('LABEL_showFreeTerms','free terms list');
+define('LABEL_helpSearchFreeTerms','Only free terms.');
+define('LABEL_broatherTerms','broader Terms');
+define('LABEL_type2filter','type to filter the terms');
+define('LABEL_defaultEQmap','Type "eq" to define equivalence relationship');
+define("MSG_repass_error","the passwords are not matched");
+define("MSG_lengh_error","please type at least %d caracteres");
+define("MSG_errorPostData","A mistake was detected, Please review the data to the field");
+define('LABEL_preferedTerms','preferred terms');
+define('LABEL_FORM_NULLnotesTermReport','terms WITHOUT notes');
+define('MSG_FORM_NULLnotesTermReport','terms without note type');
+define('LABELnoNotes','terms that have no note');
+define('LABEL_termsXdeepLevel','terms for each depth level');
+define('LABEL_deepLevel','deep level');
+define('LABEL_cantTerms','# of terms');
+define('LINK_publicKnownVocabularies','<a href="http://www.vocabularyserver.com/vocabularies/" title="List of enabled vocabularies" target="_blank">List of enabled vocabularies</a>');
+define('LABEL_showNewsTerm','show recent changes');
+define('LABEL_newsTerm','recent changes');
+define('MSG_contactAdmin','contact to the administrator');
+define('LABEL_addTargetVocabulary','add external vocabularies (terminological web services)');
 ?>

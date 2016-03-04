@@ -2,7 +2,7 @@
 #   TemaTres : aplicación para la gestión de lenguajes documentales #       #
 #                                                                        #
 #   Distribuido bajo Licencia GNU Public License, versión 2 (de junio de 1.991) Free Software Foundation
-#   Maribel Cuadrado 
+#   Maribel Cuadrado
 
 # 2014-03-06 jsau arreglant i completant catala
 ###############################################################################################################
@@ -292,7 +292,7 @@ $idiomas_disponibles = array(
      "gl"  => array("galego","", "gl"),
      "it"  => array("italiano","", "it"),
      "nl"  => array("nederlands","", "nl"),
-     "pl"  => array("polski","", "pl"),    
+     "pl"  => array("polski","", "pl"),
      "pt"  => array("portugués","", "pt"),
 	 "ru"  => array("Pусский","", "ru")
     );
@@ -321,7 +321,7 @@ $install_message[204] = "Connexió amb el servidor <em>%s</em> completada" ;
 $install_message[205] = "No es pot  connectar amb la base de dades <em>%s</em> a <em>%s</em>. Si us plau reviseu les dades de l'arxiu de configuració de la base de dades (%s)." ;
 $install_message[206] = "Connexió amb la base de dades <em>%s</em> en <em>%s</em> verificada." ;
 
-$install_message[301] = "Sembla que ja s'han creat les taules per a la configuració establerta." ;
+$install_message[301] = 'Parece que las tablas ya han sido creadas para la configuración establecida. <a href="index.php">Comience a utilizar su vocabulario</a>' ;
 $install_message[305] = "Indicació sobre el grau de seguretat de la clau.";
 $install_message[306] = 'Instal·lació completada, <a href="index.php">Ja podeu començar a fer el vocabulari</a>' ;
 /* end Install messages */
@@ -525,4 +525,39 @@ define('FORM_LABEL__contactMail','Correo electrónico de contacto');
 define('LABEL_addMapLink','agregar mapeo entre vocabularios');
 define('LABEL_addExactLink','agregar enlace de referencia');
 define('LABEL_addSourceNote','agregar nota de fuente');
+
+## v1.82
+define('LABEL_FORM_mappedTermReport','Relaciones entre vocabularios');
+define('LABEL_eliminar','Eliminar');
+
+
+##v.2
+define('MSG_termsNoDeleted','términos no fueron eliminados');
+define('MSG_termsDeleted','términos eliminados');
+define('LABEL_selectAll','seleccionar todo');
+define('LABEL_metadatos','metadatos');
+define('LABEL_totalTermsDescendants','términos descendentes');
+define('LABEL_altTerms','términos alternativos');
+define('LABEL_narrowerTerms','términos específicos');
+define('LABEL_results','resultados');
+define('LABEL_showFreeTerms','lista de términos libres');
+define('LABEL_helpSearchFreeTerms','Sólo se buscarán términos libres.');
+define('LABEL_broatherTerms','términos genéricos');
+define('LABEL_type2filter','tipee para filtrar términos');
+define('LABEL_defaultEQmap','Utilice "eq" para indicar relación de equivalencia');
+define("MSG_repass_error","las claves no coinciden");
+define("MSG_lengh_error","mínimo de %d caracteres");
+define("MSG_errorPostData","Ha ocurrido un error, por favor revise los datos correspondiente al campo ");
+define('LABEL_preferedTerms','términos preferidos');
+define('LABEL_FORM_NULLnotesTermReport','términos SIN notas');
+define('MSG_FORM_NULLnotesTermReport','términos que no tienen notas de tipo');
+define('LABELnoNotes','términos sin ninguna nota');
+define('LABEL_termsXdeepLevel','términos según nivel de profundidad');
+define('LABEL_deepLevel','nivel');
+define('LABEL_cantTerms','# de términos');
+define('LINK_publicKnownVocabularies','<a href="http://www.vocabularyserver.com/vocabularies/" title="Lista de vocabularios controlados conocidos" target="_blank">Lista de vocabularios controlados conocidos</a>');
+define('LABEL_showNewsTerm','ver cambios recientes');
+define('LABEL_newsTerm','cambios recientes');
+define('MSG_contactAdmin','contacte al administardor');
+define('LABEL_addTargetVocabulary','agregar vocabularios de referencia (servicios web terminológicos)');
 ?>

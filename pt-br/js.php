@@ -1,18 +1,17 @@
-<?php 
+<?php
 #   TemaTres : aplicación para la gestión de lenguajes documentales #       #
 #                                                                        #
 #   Copyright (C) 2004-2008 Diego Ferreyra tematres@r020.com.ar
 #   Distribuido bajo Licencia GNU Public License, versión 2 (de junio de 1.991) Free Software Foundation
-#  
+#
 ###############################################################################################################
 #
 header('Content-Type: application/javascript; charset=utf-8');
-
 include("config.tematres.php");
 /*
  * Load tinyMCE only if there are login
 */
-if ($_SESSION[$_SESSION["CFGURL"]][ssuser_nivel]>0) 
+if ($_SESSION[$_SESSION["CFGURL"]][ssuser_nivel]>0)
 {
 	?>
 	<!-- Load TinyMCE -->
@@ -41,9 +40,9 @@ if ($_SESSION[$_SESSION["CFGURL"]][ssuser_nivel]>0)
 		});
 	});
 	<!-- /TinyMCE -->
-	
+
 	$(function() {
-	 $(".editable_textarea").editable("searcher.php", { 
+	 $(".editable_textarea").editable("searcher.php", {
 		  indicator : '<img src="<?php echo T3_WEBPATH;?>images/indicator.gif"/>',
 		  placeholder : '[<?php echo LABEL_CODE;?>]',
 		  tooltip : '<?php echo LABEL_ClickEditar;?>',
@@ -52,9 +51,9 @@ if ($_SESSION[$_SESSION["CFGURL"]][ssuser_nivel]>0)
 		  id   : 'code_tema_id',
 		  name : 'code_tema',
 		  type   : 'text',
-		  onblur : 'cancel', 
+		  onblur : 'cancel',
 		  submitdata: { _method: "put" },
-		  select : true,      
+		  select : true,
 		  submit : '<?php echo ucfirst(LABEL_Guardar);?>',
 		  cancel : '<?php echo ucfirst(LABEL_Cancelar);?>',
 		  cssclass : "editable",
@@ -64,29 +63,29 @@ if ($_SESSION[$_SESSION["CFGURL"]][ssuser_nivel]>0)
 		}
 	  });
 
-	 $(".edit_area_term").editable("searcher.php", { 
+	 $(".edit_area_term").editable("searcher.php", {
 		  indicator : '<img src="<?php echo T3_WEBPATH;?>images/indicator.gif"/>',
 		  tooltip : '<?php echo LABEL_ClickEditar;?>',
 		  id   : 'edit_tema_id',
 		  name : 'edit_tema',
-		  width : '300px',		  
-		  rows : '2',		  
+		  width : '300px',
+		  rows : '1',
 		  onblur : 'cancel',
 		  type   : 'textarea',
 		  submitdata: { _method: "put" },
-		  select : true,      
+		  select : true,
 		  submit : '<?php echo ucfirst(LABEL_Guardar);?>',
 		  cancel : '<?php echo ucfirst(LABEL_Cancelar);?>',
 		  cssclass : "editable",
 	  });
 	  <?php
-	  
+
 		$arrayCustumRelations["3"]["0"].=TG_acronimo;
 		$arrayCustumRelations["4"]["0"].=UP_acronimo;
 		$arrayCustumRelations["2"]["0"].=TR_acronimo;
-			  
+
 		$SQLtypeRelations=SQLtypeRelations();
-		while ($ARRAYtypeRelations=$SQLtypeRelations->FetchRow()) 
+		while ($ARRAYtypeRelations=$SQLtypeRelations->FetchRow())
 		{
 				$arrayCustumRelations["$ARRAYtypeRelations[t_relation]"]["$ARRAYtypeRelations[rel_rel_id]"].= $ARRAYtypeRelations[rr_value];
 		};
@@ -96,7 +95,7 @@ if ($_SESSION[$_SESSION["CFGURL"]][ssuser_nivel]>0)
 		$arrayCustumRelations["TE"]["0"]=TE_acronimo;
 
 		?>
-	  $(".editable_selectTE").editable("searcher.php", { 
+	  $(".editable_selectTE").editable("searcher.php", {
 		indicator : '<img src="<?php echo T3_WEBPATH;?>images/indicator.gif">',
 		data   : '<?php print json_encode($arrayCustumRelations["TE"]); ?>',
 		id   : 'edit_rel_id',
@@ -110,8 +109,8 @@ if ($_SESSION[$_SESSION["CFGURL"]][ssuser_nivel]>0)
 				relativeLabel : 'X'
 			};
 			}
-		}); 
-	  $(".editable_select3").editable("searcher.php", { 
+		});
+	  $(".editable_select3").editable("searcher.php", {
 		indicator : '<img src="<?php echo T3_WEBPATH;?>images/indicator.gif">',
 		data   : '<?php print json_encode($arrayCustumRelations["3"]); ?>',
 		id   : 'edit_rel_id',
@@ -122,8 +121,8 @@ if ($_SESSION[$_SESSION["CFGURL"]][ssuser_nivel]>0)
 		submitdata : function() {
 			return {tema_id : '<?php print $metadata["arraydata"]["tema_id"];?>' };
 			}
-		}); 
-	  $(".editable_select2").editable("searcher.php", { 
+		});
+	  $(".editable_select2").editable("searcher.php", {
 		indicator : '<img src="<?php echo T3_WEBPATH;?>images/indicator.gif">',
 		data   : '<?php print json_encode($arrayCustumRelations["2"]); ?>',
 		id   : 'edit_rel_id',
@@ -134,8 +133,8 @@ if ($_SESSION[$_SESSION["CFGURL"]][ssuser_nivel]>0)
 		submitdata : function() {
 			return {tema_id : '<?php print $metadata["arraydata"]["tema_id"];?>' };
 			}
-		}); 
-	  $(".editable_select4").editable("searcher.php", { 
+		});
+	  $(".editable_select4").editable("searcher.php", {
 		indicator : '<img src="<?php echo T3_WEBPATH;?>images/indicator.gif">',
 		data   : '<?php print json_encode($arrayCustumRelations["4"]); ?>',
 		id   : 'edit_rel_id',
@@ -146,41 +145,10 @@ if ($_SESSION[$_SESSION["CFGURL"]][ssuser_nivel]>0)
 		submitdata : function() {
 			return {tema_id : '<?php print $metadata["arraydata"]["tema_id"];?>' };
 			}
-		}); 
+		});
 	});
-
- window.onload=function() {
-    	// BUTTONS
-    	$('.fg-button').hover(
-    		function(){ $(this).removeClass('ui-state-default').addClass('ui-state-focus'); },
-    		function(){ $(this).removeClass('ui-state-focus').addClass('ui-state-default'); }
-    	);
-    	
-    	// MENUS    	
-		$('#hierarchybreadcrumb').menu({
-			content: $('#hierarchybreadcrumb').next().html(),
-			maxHeight: 180,
-			showSpeed: 300,
-			backLink: false,
-			flyOut: false,
-			topLinkText: '<?php echo LABEL_Menu;?>',
-			callerOnState: 'ui-state-active' ,
-			crumbDefaultText: '<?php echo LABEL_Opciones;?>:'
-		});
-		$('#hierarchybreadcrumbTermMenu').menu({
-			content: $('#hierarchybreadcrumbTermMenu').next().html(),
-			maxHeight: 200,
-			showSpeed: 150,
-			backLink: false,
-			flyOut: true,
-			callerOnState: 'ui-state-active'
-		});
-		
-    };
-    
-
 <?php
-}
+}// session
 ?>
 
 function expand( id ) {
@@ -196,16 +164,6 @@ function expandLink( id ) {
 	var details = document.getElementById( id );
 	details.style.display = ( details.style.display == 'block' ) ? 'none' : 'block';
 
-}
-
-function moreFacets(name) {
-    $("#more"+name).hide();
-    $("#narrowGroupHidden_"+name).removeClass("offscreen");
-}
-
-function lessFacets(name) {
-    $("#more"+name).show();
-    $("#narrowGroupHidden_"+name).addClass("offscreen");
 }
 
 
@@ -249,150 +207,54 @@ function askData() {
 /* AJAX tree view  				*/
 /* ---------------------------- */
 $(function() {
-         var $tree = $('#treeTerm');	
+         var $tree = $('#treeTerm');
 	     $tree.tree({
            dragAndDrop: false,
            autoEscape: false,
            useContextMenu: false
-           });       
+           });
 });
 
-$(function(){
+/* ---------------------------- */
+/* AJAX search suggest			*/
+/* ---------------------------- */
+
+
+var options, a;
+var onSelect = function(val, data) { $('#simple-search #id').val(data); $('#simple-search').submit(); };
+jQuery(function(){
 
 	function formatItem(row) {
-	    return row["value"] + " (<?php echo '<strong>'.LABEL_terminoExistente.'</strong>';?>)";
+		return row["value"] + " (<?php echo '<strong>'.LABEL_terminoExistente.'</strong>';?>)";
 	}
 
-	var addTerms = $('#addTerms').autocomplete({
-	    minChars:2,
-	    serviceUrl:'suggest.php?t=0&amp;',
-	    delimiter: /(,|;)\s*/, // regex or character
-	    maxHeight:400,
-	    width:600,
-	    zIndex: 9999,
-	    formatResult: formatItem,
-	    delimiter: "\n",
-	    deferRequestBy: 0, //miliseconds
-	    noCache: false, //default is false, set to true to disable caching
-	});
-
-	/* --------*/
-	/* suggest */
-	/* --------*/
-	var query = $('#query').autocomplete({
-	    serviceUrl:'suggest.php' ,
-	    minChars:2,
-	    delimiter: /(,|;)\s*/, // regex or character
-	    maxHeight:400,
-	    width:600,
-	    zIndex: 9999,
-	    deferRequestBy: 0, //miliseconds	    
-	    noCache: false, //default is false, set to true to disable caching
-	    onSelect: function(s){ $('#simple-search #id').val(s.value); $('#simple-search').submit(); }
-	});
-	
-	/* ------*/
-	/* Termo */
-	/* ------*/
-	var termoresposta = $('#termoresposta').autocomplete({
-		serviceUrl:'suggest_qual.php?tema=32583' ,
-		minChars:2,
-		delimiter: /(,|;)\s*/, // regex or character
-		maxHeight:400,
-		width:600,
-		zIndex: 9999,
-		deferRequestBy: 0, //miliseconds	    
-		noCache: false, //default is false, set to true to disable caching
-		onSelect: function(s){ this.dataset.dtermoresposta = s.value; }
-	});
-	
-	/* ------------ */
-	/* Qualificador */
-	/* ------------ */
-	var qualificadorresposta = $('#qualificadorresposta').autocomplete({
-		    serviceUrl:'suggest_qual.php?tema=45185' ,
+	    options = {
+		    serviceUrl:'suggest.php' ,
 		    minChars:2,
 		    delimiter: /(,|;)\s*/, // regex or character
 		    maxHeight:400,
 		    width:600,
 		    zIndex: 9999,
-		    deferRequestBy: 0, //miliseconds	    
+		    deferRequestBy: 0, //miliseconds
 		    noCache: false, //default is false, set to true to disable caching
-		    onSelect: function(s){  this.dataset.dqualificadorresposta = s.value; }
+		    // callback function:
+		    onSelect: onSelect,
+	    	};
+	    a = $('#query').autocomplete(options);
+
+	    var ac = $('#addTerms').autocomplete({
+		    minChars:2,
+		    serviceUrl:'suggest.php?t=0&amp;',
+		    delimiter: /(,|;)\s*/, // regex or character
+		    maxHeight:400,
+		    width:600,
+		    zIndex: 9999,
+		    formatResult: formatItem,
+		    delimiter: "\n",
+		    deferRequestBy: 0, //miliseconds
+		    noCache: false, //default is false, set to true to disable caching
+  			});
 	});
-	
-	/* ---------------*/
-	/* Qualificador 2 */
-	/* ---------------*/
-	var qualificadorresposta2 = $('#qualificadorresposta2').autocomplete({
-	    serviceUrl:'suggest_qual.php?tema=45185' ,
-	    minChars:2,
-	    delimiter: /(,|;)\s*/, // regex or character
-	    maxHeight:400,
-	    width:600,
-	    zIndex: 9999,
-	    deferRequestBy: 0, //miliseconds	    
-	    noCache: false, //default is false, set to true to disable caching
-	    onSelect: function(s){  this.dataset.dqualificadorresposta2 = s.value; }
-    	});
-	
-	/* -------*/
-	/* Gênero */
-	/* -------*/
-	var generoresposta = $('#generoresposta').autocomplete({
-	    serviceUrl:'suggest_qual.php?tema=32584' ,
-	    minChars:1,
-	    delimiter: /(,|;)\s*/, // regex or character
-	    maxHeight:400,
-	    width:600,
-	    zIndex: 9999,
-	    deferRequestBy: 0, //miliseconds	    
-	    noCache: false, //default is false, set to true to disable caching
-	    // callback function:
-	    // onSelect: onSelect,
-	    onSelect: function(s){  this.dataset.dgeneroresposta = s.value; }
-    	});
-
-	/* -----------*/
-	/* Geográfico */
-	/* -----------*/
-	var geograficoresposta = $('#geograficoresposta').autocomplete({
-	    serviceUrl:'suggest_qual.php?tema=32628' ,
-	    minChars:2,
-	    delimiter: /(,|;)\s*/, // regex or character
-	    maxHeight:400,
-	    width:600,
-	    zIndex: 9999,
-	    deferRequestBy: 0, //miliseconds	    
-	    noCache: false, //default is false, set to true to disable caching
-	    onSelect: function(s){  this.dataset.dgeograficoresposta = s.value; }
-    	});
-
-	/* ------------*/
-	/* Geográfico2 */
-	/* ------------*/
-	var geograficoresposta2 = $('#geograficoresposta2').autocomplete({
-	    serviceUrl:'suggest_qual.php?tema=32628' ,
-	    minChars:2,
-	    delimiter: /(,|;)\s*/, // regex or character
-	    maxHeight:400,
-	    width:600,
-	    zIndex: 9999,
-	    deferRequestBy: 0, //miliseconds	    
-	    noCache: false, //default is false, set to true to disable caching
-	    onSelect: function(s){  this.dataset.dgeograficoresposta2 = s.value; }
-    	});
-
-
-});
-
-// var onSelect = function(val, data) { $('#termo #id').val(data); $('#termo').submit(); };
-// var onSelect = function(val, data) { $('#qualificador #id').val(data); $('#qualificador').submit(); };   
-// var onSelect = function(val, data) { $('#qualificador2 #id').val(data); $('#qualificador2').submit(); };
-// var onSelect = function(val, data) { $('#genero #id').val(data); $('#genero').submit(); };   
-// var onSelect = function(val, data) { $('#geografico #id').val(data); $('#geografico').submit(); };   
-// var onSelect = function(val, data) { $('#geografico2 #id').val(data); $('#geografico2').submit(); };   
-
 
 /* ---------------------------- */
 /* BOTAO GERAR                  */
@@ -503,8 +365,8 @@ function recargaedit(a,b,c,d){
 	document.getElementById("doAdmin").value='modUserNotes';
 	document.getElementById("alias").disabled=1;
 }
- 
- 
+
+
 function envianota(){
 	document.getElementById("alias").disabled=0;
 	document.getElementById("morenotas").submit();
@@ -525,7 +387,7 @@ function addrt(a,b,c){
 	document.getElementById("tema").value=b;
 	document.getElementById("taskrelations").value=c;
 	document.getElementById("taskterm").value=c;
-	document.getElementById("addRelatrions").submit();	
+	document.getElementById("addRelations").submit();
 }
 
 function recargaeditRel(a,b,c,d,e){
@@ -541,8 +403,8 @@ function recargaeditRel(a,b,c,d,e){
 
 
 
- 
- 
+
+
 function enviaRel(){
 	document.getElementById("doAdminR").value='modUserRelations';
 	document.getElementById("morerelations").submit();
@@ -564,8 +426,8 @@ function recargaeditURI(a,b,c){
 	document.getElementById("uri_type_id").value=c;
 	document.getElementById("doAdminU").value='modURIdefinition';
 }
- 
- 
+
+
 function enviaURI(){
 	document.getElementById("doAdminU").value='modURIdefinition';
 	document.getElementById("moreURI").submit();
@@ -579,3 +441,39 @@ function preparaborradoURI(a){
 	document.getElementById("moreURI").submit();
 	}
 }
+
+
+
+//Checkbox
+$(document).ready(function(){
+			 	//Checkbox
+				$("input[name=checktodos]").change(function(){
+					$("input[type=checkbox]").each( function() {
+						if($("input[name=checktodos]:checked").length == 1){
+							this.checked = true;
+						} else {
+							this.checked = false;
+						}
+					});
+				});
+
+			});
+
+//filter table http://jsfiddle.net/giorgitbs/52ak9/1/
+$(document).ready(function () {
+
+    (function ($) {
+
+        $('#filter').keyup(function () {
+
+            var rex = new RegExp($(this).val(), 'i');
+            $('.searchable tr').hide();
+            $('.searchable tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+
+        })
+
+    }(jQuery));
+
+});

@@ -3,7 +3,7 @@
 #   Author for this i18n: Tiago Murakami - trmurakami @ gmail.com
 #   Distribuido bajo Licencia GNU Public License, versión 2 (de junio de 1.991) Free Software Foundation
 #   Version 1.7
-#  
+#
 ###############################################################################################################
 
 define("LANG","pt");
@@ -24,7 +24,6 @@ define("MENU_ListaSis","Lista sistemática");
 define("MENU_ListaAbc","Lista alfabética");
 define("MENU_Sobre","Sobre...");
 define("MENU_Inicio","Início");
-define("MENU_Catalogacao","Ferramenta de catalogação");
 
 define("MENU_MiCuenta","Minha conta");
 define("MENU_Usuarios","Usuários");
@@ -292,7 +291,7 @@ $idiomas_disponibles = array(
      "gl"  => array("galego","", "gl"),
      "it"  => array("italiano","", "it"),
      "nl"  => array("nederlands","", "nl"),
-     "pl"  => array("polski","", "pl"),    
+     "pl"  => array("polski","", "pl"),
      "pt"  => array("português","", "pt"),
      "ru"  => array("Pусский","", "ru")
     );
@@ -319,7 +318,7 @@ $install_message[204] = "Sucesso na conexão do servidor <em>%s</em>" ;
 $install_message[205] = "Não foi possível conectar no base de dados <em>%s</em> no servidor <em>%s</em>. Confira seu arquivo de configuração de conexão com a base de dados (%s)." ;
 $install_message[206] = "Sucesso ao conectar na base de dados <em>%s</em> no servidor <em>%s</em>." ;
 
-$install_message[301] = "Opa... Já existe uma instancia do Tematres para esta configuração. Confira o arquivo de cofiguração da base de dados (%s)." ;
+$install_message[301] = 'Opa... Já existe uma instancia do Tematres para esta configuração. Confira o arquivo de cofiguração da base de dados (%s). <a href="index.php">Comience a utilizar su vocabulario</a>' ;
 $install_message[305] = " Conferindo a segurança da senha." ;
 $install_message[306] = 'Configuração completa, <a href="index.php">Aproveite seu servidor de vocabulário</a>' ;
 /* end Install messages */
@@ -510,8 +509,8 @@ define('LABEL_AgregarRTexist','associar um termo associado existente con');
 define('MENU_selectExistTerm','selecione termo existente');
 define("TT_terminos","Termos superiores");
 ## v1.72
-define('MSG__warningDeleteTerm','El término <i>%s</i> será <strong>ELIMINADO</strong>.');
-define('MSG__warningDeleteTerm2row','Se eliminarán <strong>todas</strong> sus notas y relaciones terminológicas. Esta acción es irreversible.');
+define('MSG__warningDeleteTerm','O termo <i>%s</i> será <strong>EXCLUÍDO</strong>.');
+define('MSG__warningDeleteTerm2row','Serão excluídas <strong>todas</strong> as notas e relações terminológicas. Esta ação é irreversível.');
 
 
 ## v1.8
@@ -521,4 +520,43 @@ define('FORM_LABEL__contactMail','contact mail');
 define('LABEL_addMapLink','add mapping between vocabularies');
 define('LABEL_addExactLink','add reference link');
 define('LABEL_addSourceNote','add source note');
+
+## v1.82
+define('LABEL_FORM_mappedTermReport','Relações entre vocabulários');
+define('LABEL_eliminar','Eliminar');
+
+
+##v.2
+define('MSG_termsNoDeleted','términos no fueron eliminados');
+define('MSG_termsDeleted','termos excluídos');
+define('LABEL_selectAll','selecionar tudo');
+define('LABEL_metadatos','metadados');
+define('LABEL_totalTermsDescendants','termos descendentes');
+define('LABEL_altTerms','termos alternativos');
+define('LABEL_narrowerTerms','termos específicos');
+define('LABEL_results','resultados');
+define('LABEL_showFreeTerms','lista de termos livres');
+define('LABEL_helpSearchFreeTerms','Sólo se buscarán términos libres.');
+define('LABEL_broatherTerms','termos gerais');
+define('LABEL_type2filter','tipee para filtrar términos');
+define('LABEL_defaultEQmap','Utilice "eq" para indicar relación de equivalencia');
+define("MSG_repass_error","las claves no coinciden");
+define("MSG_lengh_error","mínimo de %d caracteres");
+define("MSG_errorPostData","Ha ocurrido un error, por favor revise los datos correspondiente al campo ");
+define('LABEL_preferedTerms','termos preferidos');
+define('LABEL_FORM_NULLnotesTermReport','termos SEM notas');
+define('MSG_FORM_NULLnotesTermReport','términos que no tienen notas de tipo');
+define('LABELnoNotes','termos sem nenhuma nota');
+define('LABEL_termsXdeepLevel','termos segundo nível de profundidade');
+define('LABEL_deepLevel','nivel');
+define('LABEL_cantTerms','# de termos');
+define('LINK_publicKnownVocabularies','<a href="http://www.vocabularyserver.com/vocabularies/" title="Lista de vocabularios controlados conhecidos" target="_blank">Lista de vocabularios controlados conhecidos</a>');
+define('LABEL_showNewsTerm','ver alterações recentes');
+define('LABEL_newsTerm','alterações recentes');
+define('MSG_contactAdmin','contate p administrador');
+define('LABEL_addTargetVocabulary','adicionar vocabularios de referência (web services terminológicos)');
+
+## USP
+define('MENU_Catalogacao','Ferramenta de catalogação');
+
 ?>
