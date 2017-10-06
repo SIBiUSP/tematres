@@ -993,7 +993,7 @@ class dbData extends dbObject {
 			if( count( $fields ) < $table_field_count ) {
 				foreach( $table_fields as $field ) {
 					if( isset( $field['OPTS'] ) and ( in_array( 'NOTNULL', $field['OPTS'] ) || in_array( 'KEY', $field['OPTS'] ) ) && !in_array( 'AUTOINCREMENT', $field['OPTS'] ) ) {
-							continue(2);
+							continue 2;
 						}
 				}
 			}
